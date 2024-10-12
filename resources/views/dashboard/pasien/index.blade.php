@@ -9,7 +9,7 @@
                 <div class="card-header pb-0">
                     <h6>Daftar Pasien</h6>
                     <br>
-                    <a class="btn btn-primary btn-sm" href="{{ route('pasien.create') }}">Tambah Data Pasien</a>
+                    <a class="btn btn-primary btn-sm" href="{{ url('pasien/create') }}">Tambah Data Pasien</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

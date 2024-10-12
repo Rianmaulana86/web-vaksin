@@ -3,7 +3,8 @@
 
 namespace App\Http\Controllers\Main;
 
-use App\Models\Pasien; // Model Pasien yang sudah kamu buat
+use App\Http\Controllers\Controller;
+use App\Pasien;
 use Illuminate\Http\Request;
 
 class PasienController extends Controller
@@ -11,12 +12,12 @@ class PasienController extends Controller
     public function index()
     {
         $pasiens = Pasien::all(); // Mengambil semua data pasien
-        return view('pasien.index', compact('pasiens'));
+        return view('dashboard.pasien.index', compact('pasiens'));
     }
 
     public function create()
     {
-        return view('pasien.create');
+        return view('dashboard.pasien.create');
     }
 
     public function store(Request $request)
@@ -35,13 +36,13 @@ class PasienController extends Controller
         ]);
 
         Pasien::create($request->all());
-        return redirect()->route('pasien.index')->with('success', 'Data pasien berhasil ditambahkan.');
+        return redirect()->route('dashboard.pasien.index')->with('success', 'Data pasien berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
         $pasien = Pasien::findOrFail($id);
-        return view('pasien.edit', compact('pasien'));
+        return view('dashboard.pasien.edit', compact('pasien'));
     }
 
     public function update(Request $request, $id)
@@ -53,13 +54,13 @@ class PasienController extends Controller
 
         $pasien = Pasien::findOrFail($id);
         $pasien->update($request->all());
-        return redirect()->route('pasien.index')->with('success', 'Data pasien berhasil diupdate.');
+        return redirect()->route('dashboard.pasien.index')->with('success', 'Data pasien berhasil diupdate.');
     }
 
     public function destroy($id)
     {
         $pasien = Pasien::findOrFail($id);
         $pasien->delete();
-        return redirect()->route('pasien.index')->with('success', 'Data pasien berhasil dihapus.');
+        return redirect()->route('dashboard.pasien.index')->with('success', 'Data pasien berhasil dihapus.');
     }
 }

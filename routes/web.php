@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Main\PasienController;
+use App\Http\Controllers\Main\RegistrasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard.index');
     });
     
-    Route::resource('pasien', PasienController::class);
+    Route::get('pasien', [PasienController::class, 'index']);
+    Route::get('pasien/create', [PasienController::class, 'create']);
+
+    Route::get('registrasi', [RegistrasiController::class, 'index']);
+    Route::get('registrasi/create', [RegistrasiController::class, 'create']);
     
 });
