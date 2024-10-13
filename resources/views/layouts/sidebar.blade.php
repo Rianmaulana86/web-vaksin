@@ -2,12 +2,10 @@
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html" target="_blank">
-      {{-- <img src="{{ asset('assets_be/img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo"> --}}
       <span class="ms-1 font-weight-bold">Web Vaksin</span>
     </a>
   </div>
   <hr class="horizontal dark mt-0">
-
   <div class="collapse navbar-collapse w-auto" style="height: 100%;" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <!-- Dashboard -->
@@ -30,6 +28,7 @@
         </a>
         <div class="collapse" id="masterDataMenu">
           <ul class="nav ms-4">
+            <!-- Master Dokter -->
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/dokter') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -38,20 +37,54 @@
                 <span class="nav-link-text ms-1">Dokter</span>
               </a>
             </li>
+
+            <!-- Master Perawat -->
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/poli') }}">
+              <a class="nav-link" href="{{ url('/perawat') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-building text-info text-sm opacity-10"></i>
+                  <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Poli</span>
+                <span class="nav-link-text ms-1">Perawat</span>
               </a>
             </li>
+
+            <!-- Master Jenis Vaksinasi -->
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/konfigurasi') }}">
+              <a class="nav-link" href="{{ url('/vaksin') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-settings-gear-65 text-danger text-sm opacity-10"></i>
+                  <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Konfigurasi</span>
+                <span class="nav-link-text ms-1">Jenis Vaksinasi</span>
+              </a>
+            </li>
+
+            <!-- Master Vaksin Wajib -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/vaksin') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Vaksin Wajib</span>
+              </a>
+            </li>
+
+            <!-- Master Vaksin Tambahan -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/vaksin') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Vaksin Tambahan</span>
+              </a>
+            </li>
+
+            <!-- Master Travel -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/travel') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Travel</span>
               </a>
             </li>
           </ul>

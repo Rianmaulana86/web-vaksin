@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User; // Pastikan model User sudah dibuat
+use App\Models\User; // Pastikan ini mengarah ke model User yang benar
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         // Membuat 10 pengguna secara otomatis
-        \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
         
-        // Atau kamu bisa membuat pengguna secara manual seperti di bawah ini:
+        // Membuat pengguna secara manual
         User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
@@ -29,7 +29,5 @@ class UsersTableSeeder extends Seeder
             'email' => 'user1@example.com',
             'password' => bcrypt('123456'),
         ]);
-
-        // Tambahkan lebih banyak pengguna sesuai kebutuhan
     }
 }

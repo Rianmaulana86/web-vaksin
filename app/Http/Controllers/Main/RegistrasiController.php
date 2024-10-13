@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
-use App\Registrasi;
+use App\Models\Registrasi;
 use Illuminate\Http\Request;
 
 class RegistrasiController extends Controller

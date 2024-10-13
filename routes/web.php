@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Main\DokterController;
 use App\Http\Controllers\Main\PasienController;
+use App\Http\Controllers\Main\PerawatController;
+use App\Http\Controllers\Main\PoliController;
 use App\Http\Controllers\Main\RegistrasiController;
+use App\Http\Controllers\Main\TravelController;
+use App\Http\Controllers\Main\VaksinController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,5 +41,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('registrasi', [RegistrasiController::class, 'index']);
     Route::get('registrasi/create', [RegistrasiController::class, 'create']);
-    
-});
+
+    // Route::get('dokter', [DokterController::class, 'index']);
+    // Route::get('dokter/create', [DokterController::class, 'create']);
+
+    Route::resource('dokter', DokterController::class);
+    Route::resource('perawat', PerawatController::class);
+    Route::resource('poli', PoliController::class);
+    Route::resource('vaksin', VaksinController::class);
+    Route::resource('travel', TravelController::class);
+
+   });
