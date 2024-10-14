@@ -120,16 +120,16 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="warga_negara" class="form-control-label">Tanggal Berangkat</label>
-                                        <input class="form-control" type="text" name="warga_negara" required>
+                                        <label for="tanggal_berangkat" class="form-control-label">Tanggal Berangkat</label>
+                                        <input class="form-control" type="date" name="tanggal_berangkat" required>
                                     </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="telp" class="form-control-label">Jenis Vaksinasi</label>
-                                        <input class="form-control" type="text" name="telp" required>
+                                        <label for="jenis_vaksinasi" class="form-control-label">Jenis Vaksinasi</label>
+                                        <input class="form-control" type="text" name="jenis_vaksinasi" required>
                                     </div>
                             </div>
                             <div class="col-md-2">

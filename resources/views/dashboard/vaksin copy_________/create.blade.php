@@ -29,8 +29,20 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="harga" class="form-control-label">Harga</label>
-                                    <input class="form-control" type="text" name="harga" required>
+                                    <label for="produsen" class="form-control-label">Produsen</label>
+                                    <input class="form-control" type="text" name="produsen" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tgl_expired" class="form-control-label">Tanggal Kadaluarsa</label>
+                                    <input class="form-control" type="date" name="tgl_expired">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="manfaat" class="form-control-label">Manfaat</label>
+                                    <textarea class="form-control" name="manfaat" rows="3" placeholder="Manfaat vaksin"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">

@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
-                        <h3>Tambah Data Pasien</h3>
+                        <h3></h3>
                     </div>
                 </div>
                 <div class="card-body">

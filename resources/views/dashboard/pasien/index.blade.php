@@ -9,7 +9,7 @@
                 <div class="card-header pb-0">
                     <h6>Daftar Pasien</h6>
                     <br>
-                    <a class="btn btn-primary btn-sm" href="{{ url('pasien/create') }}">Tambah Data Pasien</a>
+                    <a class="btn btn-primary btn-sm" href="{{ url('pasien/create') }}">Tambah Pasien</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -48,9 +48,9 @@
                                             <td>
                                                 <a class="btn btn-primary" href="{{ route('pasien.edit', $pasien->id_rm) }}">Edit</a>
                                                 <form action="{{ route('pasien.destroy', $pasien->id_rm) }}" method="POST" style="display:inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit">Hapus</button>
+                                                    <!-- @csrf -->
+                                                    <!-- @method('DELETE') -->
+                                                    <!-- <button class="btn btn-danger" type="submit">Hapus</button> -->
                                                 </form>
                                             </td>
                                         </tr>

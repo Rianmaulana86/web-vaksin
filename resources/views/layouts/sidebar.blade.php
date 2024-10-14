@@ -36,7 +36,7 @@
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-badge text-success text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Registrasi</span>
+          <span class="nav-link-text ms-1">Vaksinasi</span>
         </a>
       </li>
 
@@ -71,23 +71,13 @@
               </a>
             </li>
 
-            <!-- Master Vaksin Wajib -->
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/vaksin') }}">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Vaksin Wajib</span>
-              </a>
-            </li>
-
             <!-- Master Vaksin Tambahan -->
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/vaksin') }}">
+              <a class="nav-link" href="{{ url('/vaksinpaket') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Vaksin Tambahan</span>
+                <span class="nav-link-text ms-1">Paket Isi Vaksin</span>
               </a>
             </li>
 

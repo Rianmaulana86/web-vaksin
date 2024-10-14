@@ -10,6 +10,7 @@ use App\Http\Controllers\Main\RegistrasiController;
 use App\Http\Controllers\Main\TravelController;
 use App\Http\Controllers\Main\VaksinController;
 use App\Http\Controllers\Main\VaksinRegistrasisController;
+use App\Http\Controllers\Main\VaksinIsiPaketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,5 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaksin', VaksinController::class);
     Route::resource('travel', TravelController::class);
     Route::resource('vaksin_registrasis', VaksinRegistrasisController::class);
+    Route::resource('vaksinpaket', VaksinIsiPaketController::class);
 
    });
