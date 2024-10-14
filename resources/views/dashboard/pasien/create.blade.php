@@ -15,12 +15,7 @@
                     <form action="{{ url('pasien.store') }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="id_rm" class="form-control-label">ID RM</label>
-                                    <input class="form-control" type="number" name="id_rm" required>
-                                </div>
-                            </div>
+                     
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="nama_pasien" class="form-control-label">Nama Pasien</label>

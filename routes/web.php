@@ -9,6 +9,7 @@ use App\Http\Controllers\Main\PoliController;
 use App\Http\Controllers\Main\RegistrasiController;
 use App\Http\Controllers\Main\TravelController;
 use App\Http\Controllers\Main\VaksinController;
+use App\Http\Controllers\Main\VaksinRegistrasisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,5 +51,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('poli', PoliController::class);
     Route::resource('vaksin', VaksinController::class);
     Route::resource('travel', TravelController::class);
+    Route::resource('vaksin_registrasis', VaksinRegistrasisController::class);
 
    });
