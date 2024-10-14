@@ -23,12 +23,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="jenis_vaksin" class="form-control-label">Jenis Vaksin</label>
-                                    <input class="form-control" type="text" name="jenis_vaksin" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label for="harga" class="form-control-label">Harga</label>
                                     <input class="form-control" type="text" name="harga" required>
                                 </div>

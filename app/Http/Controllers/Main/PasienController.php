@@ -11,7 +11,9 @@ class PasienController extends Controller
 {
     public function index()
     {
-        $pasiens = Pasien::all(); // Mengambil semua data pasien
+        // Mengambil semua data pasien dan mengurutkannya berdasarkan no_rm secara descending
+        $pasiens = Pasien::orderBy('no_rm', 'desc')->get();
+        
         return view('dashboard.pasien.index', compact('pasiens'));
     }
 
