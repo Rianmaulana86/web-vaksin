@@ -18,8 +18,31 @@
         </a>
       </li>
 
-      <!-- Dropdown Master Data -->
+
+
+      <!-- Pasien -->
       <li class="nav-item">
+        <a class="nav-link" href="{{ url('/pasien') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Pasien</span>
+        </a>
+      </li>
+
+      <!-- Registrasi -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/registrasi') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-badge text-success text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Registrasi</span>
+        </a>
+      </li>
+
+
+            <!-- Dropdown Master Data -->
+            <li class="nav-item">
         <a class="nav-link" href="#masterDataMenu" data-bs-toggle="collapse" aria-expanded="false">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
@@ -34,17 +57,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Dokter</span>
-              </a>
-            </li>
-
-            <!-- Master Perawat -->
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/perawat') }}">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Perawat</span>
+                <span class="nav-link-text ms-1">NAKES</span>
               </a>
             </li>
 
@@ -89,26 +102,6 @@
             </li>
           </ul>
         </div>
-      </li>
-
-      <!-- Pasien -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/pasien') }}">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Pasien</span>
-        </a>
-      </li>
-
-      <!-- Registrasi -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/registrasi') }}">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-badge text-success text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Registrasi</span>
-        </a>
       </li>
 
     </ul>

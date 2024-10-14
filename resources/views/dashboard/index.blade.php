@@ -11,14 +11,10 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Pendapatan Vaksin</p>
                   <h5 class="font-weight-bolder">
-                    $53,000
+                    Rp.1.550.000,00
                   </h5>
-                  <p class="mb-0">
-                    <span class="text-success text-sm font-weight-bolder">+55%</span>
-                    since yesterday
-                  </p>
                 </div>
               </div>
               <div class="col-4 text-end">
@@ -36,13 +32,12 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Pasien Vaksin</p>
                   <h5 class="font-weight-bolder">
-                    2,300
+                    150
                   </h5>
                   <p class="mb-0">
-                    <span class="text-success text-sm font-weight-bolder">+3%</span>
-                    since last week
+                    <span class="text-success text-sm font-weight-bolder">Orang</span>
                   </p>
                 </div>
               </div>
@@ -61,13 +56,12 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Pasien Hari Ini</p>
                   <h5 class="font-weight-bolder">
-                    +3,462
+                    10
                   </h5>
                   <p class="mb-0">
-                    <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                    since last quarter
+                    <span class="text-success text-sm font-weight-bolder">Orang</span>
                   </p>
                 </div>
               </div>
@@ -86,12 +80,12 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Pasien Belum Ditangani</p>
                   <h5 class="font-weight-bolder">
-                    $103,430
+                   5
                   </h5>
                   <p class="mb-0">
-                    <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
+                    <span class="text-success text-sm font-weight-bolder">Orang</span>
                   </p>
                 </div>
               </div>

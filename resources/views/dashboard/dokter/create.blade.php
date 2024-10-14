@@ -17,14 +17,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="nama_dokter" class="form-control-label">Nama Dokter</label>
+                                    <label for="nama_dokter" class="form-control-label">Nama Dokter/Asisten</label>
                                     <input class="form-control" type="text" name="nama_dokter" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="spesialisasi" class="form-control-label">Spesialisasi</label>
-                                    <input class="form-control" type="text" name="spesialisasi" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -35,14 +29,23 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="kontak" class="form-control-label">Kontak</label>
-                                    <input class="form-control" type="text" name="kontak" placeholder="Telepon atau Email">
+                                    <label for="kontak" class="form-control-label">No.Handphone</label>
+                                    <input class="form-control" type="text" name="kontak" placeholder="Nomer Telepon/Wa Aktif">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="alamat" class="form-control-label">Alamat</label>
                                     <input class="form-control" type="text" name="alamat" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="status" class="form-control-label">Posisi</label>
+                                    <select class="form-control" name="posisi" required>
+                                        <option value="Dokter">Dokter</option>
+                                        <option value="Asisten">Asisten</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">

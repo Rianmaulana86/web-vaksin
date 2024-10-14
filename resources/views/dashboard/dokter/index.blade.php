@@ -7,9 +7,9 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Daftar Dokter</h6>
+                    <h6>Daftar Tenaga Kesehatan</h6>
                     <br>
-                    <a class="btn btn-primary btn-sm" href="{{ url('dokter/create') }}">Tambah Data Dokter</a>
+                    <a class="btn btn-primary btn-sm" href="{{ url('dokter/create') }}">Tambah Data Tenaga Kesehatan</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -17,10 +17,10 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Dokter</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Spesialisasi</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nomor Izin Praktik</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kontak</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Posisi</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No.SIP</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No.HP</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Alamat</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
@@ -36,7 +36,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $dokter->nama_dokter }}</td>
-                                            <td>{{ $dokter->spesialisasi }}</td>
+                                            <td>{{ $dokter->posisi }}</td>
                                             <td>{{ $dokter->nomor_izin_praktik }}</td>
                                             <td>{{ $dokter->kontak }}</td>
                                             <td>{{ $dokter->alamat }}</td>
