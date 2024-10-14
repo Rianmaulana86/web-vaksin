@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use App\Models\VaksinRegistrasis;
 use App\Models\Dokter;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class VaksinRegistrasisController extends Controller
@@ -19,7 +20,8 @@ class VaksinRegistrasisController extends Controller
     {
         $dokters = Dokter::where('posisi', 'Dokter')->get();
         $asistens = Dokter::where('posisi', 'Asisten')->get();
-        return view('dashboard.vaksin_registrasis.create', compact('dokters', 'asistens'));
+        $country = Country::all();
+        return view('dashboard.vaksin_registrasis.create', compact('dokters', 'asistens','country'));
     }
 
     public function store(Request $request)
