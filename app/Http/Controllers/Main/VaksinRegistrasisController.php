@@ -17,7 +17,7 @@ class VaksinRegistrasisController extends Controller
         $search = $request->input('search');
     
         // Fetch the vaksin_registrasis with pagination and searching
-        $vaksin_registrasis = VaksinRegistrasis::with('pasien')
+        $vaksin_registrasis = VaksinRegistrasis::with('pasien','jenisVaksin')
             ->when($search, function ($query, $search) {
                 return $query->where('no_reg', 'like', "%{$search}%")
                              ->orWhereHas('pasien', function ($query) use ($search) {
@@ -26,7 +26,7 @@ class VaksinRegistrasisController extends Controller
                                        ->orWhere('no_passport', 'like', "%{$search}%");
                              });
             })
-            ->orderBy('no_reg', 'desc') // Order by no_reg in descending order
+            ->orderBy('no_reg', 'desc') // Order by no_reg in descending order  
             ->paginate(20); // Change 10 to the desired number of records per page
     
         return view('dashboard.vaksin_registrasis.index', compact('vaksin_registrasis', 'search'));

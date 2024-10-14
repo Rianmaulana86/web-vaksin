@@ -50,7 +50,7 @@
                         <td>{{ $vaksin->pasien->nama_pasien }}</td>
                         <td>{{ $vaksin->pasien->no_rm }}</td>
                         <td>{{ $vaksin->pasien->no_passport }}</td>
-                        <td>{{ $vaksin->jenis_vaksinasi }}</td>
+                        <td>{{ $vaksin->jenisVaksin->nama_jenis_paket_vaksin ?? 'N/A' }}</td>
                         <td>{{ $vaksin->tanggal_berangkat }}</td>
                         <td>
                             <center>
