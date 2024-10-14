@@ -17,9 +17,14 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID RM</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No.RM</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Pasien</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No Passport</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tempat Lahir</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Lahir</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">J.Kelamin</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Pekerjaan</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No.Telp/WA</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                                 </tr>
                             </thead>
@@ -32,9 +37,14 @@
                                     @foreach ($pasiens as $pasien)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $pasien->id_rm }}</td>
+                                            <td>{{ $pasien->no_rm }}</td>
                                             <td>{{ $pasien->nama_pasien }}</td>
                                             <td>{{ $pasien->no_passport }}</td>
+                                            <td>{{ $pasien->tempat_lahir }}</td>
+                                            <td>{{ $pasien->tgl_lahir }}</td>
+                                            <td>{{ $pasien->kelamin }}</td>
+                                            <td>{{ $pasien->no_passport }}</td>
+                                            <td>{{ $pasien->pekerjaan }}</td>
                                             <td>
                                                 <a class="btn btn-primary" href="{{ route('pasien.edit', $pasien->id_rm) }}">Edit</a>
                                                 <form action="{{ route('pasien.destroy', $pasien->id_rm) }}" method="POST" style="display:inline;">

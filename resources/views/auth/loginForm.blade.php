@@ -40,13 +40,13 @@
   </nav>
   <!-- End Navbar -->
   <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('assets_be/img/carousel-1.jpg'); background-position: top;">
+    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('assets_be/img/background1.png  '); background-position: top;">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-5 text-center mx-auto">
-            <h1 class="text-white mb-2 mt-5">Selamat Datang!</h1>
-            {{-- <p class="text-lead text-white">Login Untuk Mengatur Postingan Di Company Profile</p> --}}
+          <div class="col-lg-5 text-center mx-auto">  
+            <h1 class="text-white mb-2 mt-5">APLIKASI VAKSIN TERPADU SHOFA</h1>
+            {{-- <p class="text-lead text-white">Login Untuk Mengakses Aplikasi</p> --}}
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
-              <h5>Login Form</h5>
+              <h5>Selamat Datang Di Aplikasi Cetak Buku Vaksin </h5>
             </div>
             <div class="card-body">
               <form role="form" method="POST" action="{{ url('login') }}">
@@ -85,7 +85,7 @@
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> HopeSuccesTeam Tech Developer
+            </script> Hamba Alloh
           </p>
         </div>
       </div>

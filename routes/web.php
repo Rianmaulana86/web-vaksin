@@ -37,15 +37,10 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard.index');
     });
     
-    Route::get('pasien', [PasienController::class, 'index']);
-    Route::get('pasien/create', [PasienController::class, 'create']);
-
     Route::get('registrasi', [RegistrasiController::class, 'index']);
     Route::get('registrasi/create', [RegistrasiController::class, 'create']);
 
-    // Route::get('dokter', [DokterController::class, 'index']);
-    // Route::get('dokter/create', [DokterController::class, 'create']);
-
+    Route::resource('pasien', PasienController::class);
     Route::resource('dokter', DokterController::class);
     Route::resource('perawat', PerawatController::class);
     Route::resource('poli', PoliController::class);
