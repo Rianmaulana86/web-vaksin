@@ -156,26 +156,30 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="telp" class="form-control-label">Nama Travel / Agen</label>
-                                        <input class="form-control" type="text" name="telp" required>
+                                        <label for="travelagent" class="form-control-label">Nama Travel / Agen</label>
+                                        <select class="form-control" id="travel-choose" name="travel-choose" required>
+                                            <option value="">Pilih Travel</option> 
+                                            @foreach($travel as $t)
+                                                <option value="{{ $t->id }}" data-alamat="{{ $t->alamat }}" data-kontak="{{ $t->no_telp }}">{{ $t->nama }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                            </div>
-                            <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="warga_negara" class="form-control-label">Alamat Travel</label>
-                                        <input class="form-control" type="text" name="warga_negara" required>
+                                        <label for="alamattravel" class="form-control-label">Alamat Travel</label>
+                                        <input class="form-control" type="text" id="alamattravel" name="alamattravel" required>
                                     </div>
-                            </div>
-                            <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="warga_negara" class="form-control-label">No.Telp</label>
-                                        <input class="form-control" type="text" name="warga_negara" required>
+                                        <label for="notelptravel" class="form-control-label">No.Telp</label>
+                                        <input class="form-control" type="text" id="kontaktravel" name="kontaktravel" required>
                                     </div>
+                                </div>
                             </div>
-                        </div>
-
                         <button class="btn btn-primary btn-sm ms-auto" type="submit">Submit</button>
                     </form>
                 </div>
@@ -289,6 +293,45 @@
     });
 
 
+
+    document.getElementById('travel-choose').addEventListener('change', function() {
+    const travelId = this.value;
+    if (travelId) {
+        fetch(`/api/getTravel/${travelId}`)
+            .then(response => { 
+                return response.json();
+            })
+            .then(data => {
+             
+
+                data.forEach(item => {
+                   
+                        alamatTravel = item.alamat;
+                        kontakTravel = item.kontak;
+                  
+                });
+
+                document.getElementById('alamattravel').value = alamatTravel;
+                document.getElementById('kontaktravel').value = kontakTravel;
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+            document.getElementById('alamattravel').value = '';
+            document.getElementById('kontaktravel').value = '';
+        }
+    });
+
+
 </script>
 
+
+<script>
+    document.getElementById('travel-choose').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const alamat = selectedOption.getAttribute('data-alamat');
+        const kontak = selectedOption.getAttribute('data-kontak');
+
+        document.getElementById('alamattravel').value = alamat || '';
+        document.getElementById('kontaktravel').value = kontak || '';
+    });
 @endpush

@@ -4,19 +4,19 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\VaksinPaket;
+use App\Models\Travel;
 
-class VaksinController extends Controller
+class TravelController extends Controller
 {
-    public function getVaksinIsi($id)
+    public function getTravel($id)
     {
         if (!is_numeric($id)) {
             return response()->json(['error' => 'Invalid ID'], 400);
         }
-        $vaksin_isi = VaksinPaket::where('id_jenis_paket', $id)->get();
-        if ($vaksin_isi->isEmpty()) {
+        $travel_data = Travel::where('id', $id)->get();
+        if ($travel_data->isEmpty()) {
             return response()->json(['message' => 'No records found'], 404);
         }
-        return response()->json($vaksin_isi);
+        return response()->json($travel_data);
     }
 }

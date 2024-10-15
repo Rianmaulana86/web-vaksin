@@ -7,6 +7,7 @@ use App\Models\VaksinRegistrasis;
 use App\Models\Dokter;
 use App\Models\Country;
 use App\Models\Vaksin;
+use App\Models\travel;
 use Illuminate\Http\Request;
 
 class VaksinRegistrasisController extends Controller
@@ -36,6 +37,7 @@ class VaksinRegistrasisController extends Controller
             $asistens = Dokter::where('posisi', 'Asisten')->get();
             $country = Country::all();
             $vaksin = Vaksin::all();
+            $travel = Travel::all();
 
             $today = date('ymd'); 
             $milliseconds = round(microtime(true) * 1000) % 1000;
@@ -43,7 +45,7 @@ class VaksinRegistrasisController extends Controller
             $urutan = $lastReg ? (int) substr($lastReg->no_reg, -3) + 1 : 1; 
             $no_reg = 'RV' . $today . str_pad($milliseconds, 3, '0', STR_PAD_LEFT) . str_pad($urutan, 3, '0', STR_PAD_LEFT);
 
-            return view('dashboard.vaksin_registrasis.create', compact('dokters', 'asistens', 'country', 'no_reg','vaksin'));
+            return view('dashboard.vaksin_registrasis.create', compact('dokters', 'asistens', 'country', 'no_reg','vaksin','travel'));
     }
 
     public function store(Request $request)
