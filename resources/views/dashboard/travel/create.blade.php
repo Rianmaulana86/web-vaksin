@@ -17,46 +17,29 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="nama_travel" class="form-control-label">Nama Travel</label>
-                                    <input class="form-control" type="text" name="nama_travel" required>
+                                    <label for="nama" class="form-control-label">Nama Travel</label>
+                                    <input class="form-control" type="text" name="nama" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="alamat_travel" class="form-control-label">Alamat Travel</label>
-                                    <input class="form-control" type="text" name="alamat_travel" required>
+                                    <label for="alamat" class="form-control-label">Alamat Travel</label>
+                                    <input class="form-control" type="text" name="alamat" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="kontak_travel" class="form-control-label">Kontak Travel</label>
-                                    <input class="form-control" type="text" name="kontak_travel" placeholder="Telepon atau Email">
+                                    <label for="kontak" class="form-control-label">Kontak</label>
+                                    <input class="form-control" type="text" name="kontak" placeholder="Telepon atau Email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="website_travel" class="form-control-label">Website Travel</label>
-                                    <input class="form-control" type="text" name="website_travel" placeholder="https://example.com">
+                                    <label for="website" class="form-control-label">Website Travel</label>
+                                    <input class="form-control" type="text" name="website" placeholder="https://example.com">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="jenis_travel" class="form-control-label">Jenis Travel</label>
-                                    <input class="form-control" type="text" name="jenis_travel" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="tgl_berangkat" class="form-control-label">Tanggal Berangkat</label>
-                                    <input class="form-control" type="date" name="tgl_berangkat">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="negara_tujuan" class="form-control-label">Negara Tujuan</label>
-                                    <input class="form-control" type="text" name="negara_tujuan" required>
-                                </div>
-                            </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="status" class="form-control-label">Status</label>

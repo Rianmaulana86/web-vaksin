@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('content')
+<style>
+    .custom-button {
+        padding: 20px 30px; /* Atur padding sesuai kebutuhan */
+        font-size: 1.2em; /* Atur ukuran font */
+    }
+</style>
+
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-md-12">
@@ -16,15 +23,13 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cariPasienModal">Cari Pasien</button>
+                                <button type="button" class="btn btn-primary custom-button" data-toggle="modal" data-target="#cariPasienModal">Cari Pasien</button>
                                 </div>
                             </div>
-
-
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="nama_pasien" class="form-control-label">Nama Pasien</label>
-                                    <input class="form-control" type="text" name="nama_pasien" >
+                                    <input class="form-control" type="text" name="nama_pasien" disabled>
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -33,7 +38,6 @@
                                     <input class="form-control" type="text" name="no_passport" disabled>
                                 </div>
                             </div>
-                           
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="tempat_lahir" class="form-control-label">Tempat Lahir</label>
@@ -50,20 +54,16 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="kelamin" class="form-control-label">Jenis Kelamin</label>
-                                    <select class="form-control" name="kelamin" disabled>
-                                        <option value="Pria">Pria</option>
-                                        <option value="Wanita">Wanita</option>
-                                    </select>
+                                    <input class="form-control" type="text" name="kelamin" disabled>
                                 </div>
                             </div>
-                      
-                            <div class="col-md-2">
+                            <!-- <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="pekerjaan" class="form-control-label">Pekerjaan</label>
                                     <input class="form-control" type="text" name="pekerjaan" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3">  
                                 <div class="form-group">
                                     <label for="alamat" class="form-control-label">Alamat</label>
                                     <textarea class="form-control" name="alamat" id="alamat" rows="2" disabled></textarea>
@@ -80,7 +80,7 @@
                                     <label for="warga_negara" class="form-control-label">Warga Negara</label>
                                     <input class="form-control" type="text" name="warga_negara" disabled>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <hr>
                         <div class="row">
@@ -95,7 +95,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="asisten" class="form-control-label">Asisten</label>
@@ -137,16 +136,16 @@
                                                     </select>
                                     </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="vaksin_wajib" class="form-control-label">Vaksin Wajib</label>
-                                        <input class="form-control" type="text" name="vaksin_wajib" id="vaksin_wajib" required>
+                                        <input class="form-control" type="text" name="vaksin_wajib" id="vaksin_wajib" disabled>
                                     </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="vaksin_tambahan" class="form-control-label">Vaksin Tambahan</label>
-                                        <input class="form-control" type="text" name="vaksin_tambahan" id="vaksin_tambahan" required>
+                                        <input class="form-control" type="text" name="vaksin_tambahan" id="vaksin_tambahan" disabled>
                                     </div>
                             </div>
                             <div class="col-md-2">
@@ -156,7 +155,6 @@
                                     </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-3">
                                     <div class="form-group">
@@ -176,7 +174,6 @@
                                         <input class="form-control" type="text" name="warga_negara" required>
                                     </div>
                             </div>
-                         
                         </div>
 
                         <button class="btn btn-primary btn-sm ms-auto" type="submit">Submit</button>
@@ -215,38 +212,57 @@
 
 @push('scripts')
 <script>
-    document.getElementById('search_button').addEventListener('click', function() {
-        alert('API Response'); // Log the response
-        // const query = document.getElementById('search_input').value;
-        // // Perform an AJAX call to search for patients (you'll need to implement this endpoint)
-        // fetch(`/api/pasiens?search=${query}`)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         let resultsHtml = '<ul class="list-group">';
-        //         data.forEach(patient => {
-        //             resultsHtml += `<li class="list-group-item" onclick="selectPatient('${pasiens.id}', '${pasiens.nama_pasien}', '${pasiens.no_passport}')">${patient.nama_pasien} - ${patient.no_passport}</li>`;
-        //         });
-        //         resultsHtml += '</ul>';
-        //         document.getElementById('search_results').innerHTML = resultsHtml;
-        //     })
-        //     .catch(error => {
-        //         console.error('Error fetching patients:', error);
-        //     });
-    });
+        document.getElementById('search_button').addEventListener('click', function() {
+            const query = document.getElementById('search_input').value;
+            fetch(`/api/pasiens?search=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultsHtml = '<ul class="list-group">';
+                    data.forEach(patient => {
+                        resultsHtml += `
+                            <li class="list-group-item">
+                                ${patient.nama_pasien} - ${patient.no_passport}
+                                <button class="btn btn-primary btn-sm float-end" 
+                                onclick="selectPatient('${patient.id_rm}', 
+                                                        '${patient.nama_pasien}',
+                                                        '${patient.no_passport}',
+                                                        '${patient.tempat_lahir}',
+                                                        '${patient.tgl_lahir}',
+                                                        '${patient.kelamin}',
+                                                        '${patient.pekerjaan}',
+                                                        '${patient.alamat}',    
+                                                        '${patient.telp}')">
+                                                        Pilih</button>
+                            </li>`;
+                    });
+                    resultsHtml += '</ul>';
+                    document.getElementById('search_results').innerHTML = resultsHtml;
+                    $('#cariPasienModal').modal('hide');
+                })
+                .catch(error => {
+                    console.error('Error fetching patients:', error);
+                });
+        });
 
-    function selectPatient(id, nama, no_passport) {
+    function selectPatient(id, nama, no_passport, tempat_lahir, tanggal_lahir, jk, pekerjaan, alamat, no_telp) {
         document.querySelector('input[name="nama_pasien"]').value = nama;
         document.querySelector('input[name="no_passport"]').value = no_passport;
+
+        document.querySelector('input[name="tempat_lahir"]').value = tempat_lahir;
+        document.querySelector('input[name="tgl_lahir"]').value =   tanggal_lahir;
+        document.querySelector('input[name="kelamin"]').value =     jk;
+        document.querySelector('input[name="pekerjaan"]').value =   pekerjaan;
+        document.querySelector('input[name="alamat"]').value =      alamat;
+        document.querySelector('input[name="no_telp"]').value =     no_telp;
+        document.querySelector('input[name="warga_negara"]').value = "INDONESIA";
         $('#cariPasienModal').modal('hide');
     }
 
     document.getElementById('jenis_vaksinasi').addEventListener('change', function() {
     const vaksinId = this.value;
-    alert('API Response:', response); // Log the response
     if (vaksinId) {
         fetch(`/api/vaksin-isi/${vaksinId}`)
-            .then(response => {
-                alert('API Response:', response); // Log the response
+            .then(response => { 
                 return response.json();
             })
             .then(data => {

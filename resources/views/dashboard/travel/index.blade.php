@@ -18,12 +18,8 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Travel</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Alamat Travel</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kontak Travel</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Website Travel</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jenis Travel</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Berangkat</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Negara Tujuan</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Alamat </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kontak </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                                 </tr>
@@ -37,13 +33,9 @@
                                     @foreach ($travel as $travel)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $travel->nama_travel }}</td>
-                                            <td>{{ $travel->alamat_travel }}</td>
-                                            <td>{{ $travel->kontak_travel }}</td>
-                                            <td>{{ $travel->website_travel }}</td>
-                                            <td>{{ $travel->jenis_travel }}</td>
-                                            <td>{{ $travel->tgl_berangkat ? $travel->tgl_berangkat->format('d-m-Y') : 'N/A' }}</td>
-                                            <td>{{ $travel->negara_tujuan }}</td>
+                                            <td>{{ $travel->nama }}</td>
+                                            <td>{{ $travel->alamat }}</td>
+                                            <td>{{ $travel->kontak }}</td>
                                             <td>{{ ucfirst($travel->status) }}</td>
                                             <td>
                                                 <a class="btn btn-primary" href="{{ route('travel.edit', $travel->id) }}">Edit</a>
