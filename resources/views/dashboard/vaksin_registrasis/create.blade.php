@@ -26,10 +26,12 @@
                                 <button type="button" class="btn btn-primary custom-button" data-toggle="modal" data-target="#cariPasienModal">Cari Pasien</button>
                                 </div>
                             </div>
+
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="nama_pasien" class="form-control-label">Nama Pasien</label>
                                     <input class="form-control" type="text" name="nama_pasien" disabled>
+                                    <input class="form-control" type="text" name="id_pasien" >
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -109,7 +111,7 @@
                             <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="negaratujuan" class="form-control-label">Negara Tujuan</label>
-                                                    <select class="form-control" name="negaratujuan" required>
+                                                    <select class="form-control" name="negara" required>
                                                         <option value="">Pilih Negara Tujuan</option>
                                                         @foreach($country as $country)
                                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -151,7 +153,7 @@
                             <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="telp" class="form-control-label">Wanita Usia Subur(Usia 15-49 Tahun)</label>
-                                        <input class="form-control" type="text" name="telp" required>
+                                        <input class="form-control" type="text" name="status" required>
                                     </div>
                             </div>
                         </div>
@@ -159,7 +161,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="travelagent" class="form-control-label">Nama Travel / Agen</label>
-                                        <select class="form-control" id="travel-choose" name="travel-choose" required>
+                                        <select class="form-control" id="travel" name="travel" required>
                                             <option value="">Pilih Travel</option> 
                                             @foreach($travel as $t)
                                                 <option value="{{ $t->id }}" data-alamat="{{ $t->alamat }}" data-kontak="{{ $t->no_telp }}">{{ $t->nama }}</option>
@@ -170,13 +172,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="alamattravel" class="form-control-label">Alamat Travel</label>
-                                        <input class="form-control" type="text" id="alamattravel" name="alamattravel" required>
+                                        <input class="form-control" type="text" id="alamattravel" name="alamattravel" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="notelptravel" class="form-control-label">No.Telp</label>
-                                        <input class="form-control" type="text" id="kontaktravel" name="kontaktravel" required>
+                                        <input class="form-control" type="text" id="kontaktravel" name="kontaktravel" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -249,6 +251,7 @@
         });
 
     function selectPatient(id, nama, no_passport, tempat_lahir, tanggal_lahir, jk, pekerjaan, alamat, no_telp) {
+        document.querySelector('input[name="id_pasien"]').value = id;
         document.querySelector('input[name="nama_pasien"]').value = nama;
         document.querySelector('input[name="no_passport"]').value = no_passport;
 
@@ -294,7 +297,7 @@
 
 
 
-    document.getElementById('travel-choose').addEventListener('change', function() {
+    document.getElementById('travel').addEventListener('change', function() {
     const travelId = this.value;
     if (travelId) {
         fetch(`/api/getTravel/${travelId}`)
@@ -326,7 +329,7 @@
 
 
 <script>
-    document.getElementById('travel-choose').addEventListener('change', function() {
+    document.getElementById('travel').addEventListener('change', function() {
         const selectedOption = this.options[this.selectedIndex];
         const alamat = selectedOption.getAttribute('data-alamat');
         const kontak = selectedOption.getAttribute('data-kontak');
