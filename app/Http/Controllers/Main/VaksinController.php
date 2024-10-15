@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vaksin;
+use App\Models\VaksinPaket;
 use Illuminate\Http\Request;
 
 class VaksinController extends Controller
@@ -50,4 +51,10 @@ class VaksinController extends Controller
         $vaksin->delete();
         return redirect()->back()->with('success', 'Data vaksin berhasil dihapus.');
     }
+
+    // public function getVaksinIsi($id)
+    // {
+    //     $vaksin_isi = VaksinPaket::where('id_jenis_paket', $id)->get();
+    //     return response()->json($vaksin_isi);
+    // }
 }

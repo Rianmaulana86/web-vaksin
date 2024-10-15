@@ -50,4 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaksin_registrasis', VaksinRegistrasisController::class);
     Route::resource('vaksinpaket', VaksinIsiPaketController::class);
 
+    //api
+    Route::get('/vaksin-isi/{id}', [VaksinController::class, 'getVaksinIsi']);
+
    });

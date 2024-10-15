@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\VaksinRegistrasis;
 use App\Models\Dokter;
 use App\Models\Country;
+use App\Models\Vaksin;
 use Illuminate\Http\Request;
 
 class VaksinRegistrasisController extends Controller
 {
-
     public function index(Request $request)
     {
         $search = $request->input('search');
@@ -35,6 +35,7 @@ class VaksinRegistrasisController extends Controller
             $dokters = Dokter::where('posisi', 'Dokter')->get();
             $asistens = Dokter::where('posisi', 'Asisten')->get();
             $country = Country::all();
+            $vaksin = Vaksin::all();
 
             $today = date('ymd'); 
             $milliseconds = round(microtime(true) * 1000) % 1000;
@@ -42,7 +43,7 @@ class VaksinRegistrasisController extends Controller
             $urutan = $lastReg ? (int) substr($lastReg->no_reg, -3) + 1 : 1; 
             $no_reg = 'RV' . $today . str_pad($milliseconds, 3, '0', STR_PAD_LEFT) . str_pad($urutan, 3, '0', STR_PAD_LEFT);
 
-            return view('dashboard.vaksin_registrasis.create', compact('dokters', 'asistens', 'country', 'no_reg'));
+            return view('dashboard.vaksin_registrasis.create', compact('dokters', 'asistens', 'country', 'no_reg','vaksin'));
     }
 
     public function store(Request $request)

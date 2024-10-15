@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
 
+use App\Models\VaksinPaket;
+
 class ApiController extends Controller
 {
     public function search(Request $request)//cari pasien

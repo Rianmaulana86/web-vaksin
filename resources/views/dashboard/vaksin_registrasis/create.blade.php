@@ -109,8 +109,8 @@
                             </div>
                             <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="telp" class="form-control-label">Negara Tujuan</label>
-                                        <select class="form-control" name="asisten" required>
+                                        <label for="negaratujuan" class="form-control-label">Negara Tujuan</label>
+                                                    <select class="form-control" name="negaratujuan" required>
                                                         <option value="">Pilih Negara Tujuan</option>
                                                         @foreach($country as $country)
                                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -118,7 +118,7 @@
                                                     </select>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                            <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="tanggal_berangkat" class="form-control-label">Tanggal Berangkat</label>
                                         <input class="form-control" type="date" name="tanggal_berangkat" required>
@@ -128,20 +128,25 @@
                         <div class="row">
                             <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="jenis_vaksinasi" class="form-control-label">Jenis Vaksinasi</label>
-                                        <input class="form-control" type="text" name="jenis_vaksinasi" required>
+                                        <label for="jenisvaksinasi" class="form-control-label">Jenis Vaksinasi</label>
+                                                    <select class="form-control" id='jenis_vaksinasi' name="jenis_vaksinasi" required>
+                                                        <option value="">Pilih Vaksin</option> 
+                                                            @foreach($vaksin as $vaksin)
+                                                                <option value="{{ $vaksin->id }}">{{ $vaksin->nama_jenis_paket_vaksin }}</option>
+                                                            @endforeach
+                                                    </select>
                                     </div>
                             </div>
                             <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="warga_negara" class="form-control-label">Vaksin Wajib</label>
-                                        <input class="form-control" type="text" name="warga_negara" required>
+                                        <label for="vaksin_wajib" class="form-control-label">Vaksin Wajib</label>
+                                        <input class="form-control" type="text" name="vaksin_wajib" id="vaksin_wajib" required>
                                     </div>
                             </div>
                             <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="warga_negara" class="form-control-label">Vaksin Tambahan</label>
-                                        <input class="form-control" type="text" name="warga_negara" required>
+                                        <label for="vaksin_tambahan" class="form-control-label">Vaksin Tambahan</label>
+                                        <input class="form-control" type="text" name="vaksin_tambahan" id="vaksin_tambahan" required>
                                     </div>
                             </div>
                             <div class="col-md-2">
@@ -205,28 +210,28 @@
         </div>
     </div>
 </div>
-
 @endsection
 
 
-@section('scripts')
+@push('scripts')
 <script>
     document.getElementById('search_button').addEventListener('click', function() {
-        const query = document.getElementById('search_input').value;
-        // Perform an AJAX call to search for patients (you'll need to implement this endpoint)
-        fetch(`/api/pasiens?search=${query}`)
-            .then(response => response.json())
-            .then(data => {
-                let resultsHtml = '<ul class="list-group">';
-                data.forEach(patient => {
-                    resultsHtml += `<li class="list-group-item" onclick="selectPatient('${pasiens.id}', '${pasiens.nama_pasien}', '${pasiens.no_passport}')">${patient.nama_pasien} - ${patient.no_passport}</li>`;
-                });
-                resultsHtml += '</ul>';
-                document.getElementById('search_results').innerHTML = resultsHtml;
-            })
-            .catch(error => {
-                console.error('Error fetching patients:', error);
-            });
+        alert('API Response'); // Log the response
+        // const query = document.getElementById('search_input').value;
+        // // Perform an AJAX call to search for patients (you'll need to implement this endpoint)
+        // fetch(`/api/pasiens?search=${query}`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         let resultsHtml = '<ul class="list-group">';
+        //         data.forEach(patient => {
+        //             resultsHtml += `<li class="list-group-item" onclick="selectPatient('${pasiens.id}', '${pasiens.nama_pasien}', '${pasiens.no_passport}')">${patient.nama_pasien} - ${patient.no_passport}</li>`;
+        //         });
+        //         resultsHtml += '</ul>';
+        //         document.getElementById('search_results').innerHTML = resultsHtml;
+        //     })
+        //     .catch(error => {
+        //         console.error('Error fetching patients:', error);
+        //     });
     });
 
     function selectPatient(id, nama, no_passport) {
@@ -234,5 +239,40 @@
         document.querySelector('input[name="no_passport"]').value = no_passport;
         $('#cariPasienModal').modal('hide');
     }
+
+    document.getElementById('jenis_vaksinasi').addEventListener('change', function() {
+    const vaksinId = this.value;
+    alert('API Response:', response); // Log the response
+    if (vaksinId) {
+        fetch(`/api/vaksin-isi/${vaksinId}`)
+            .then(response => {
+                alert('API Response:', response); // Log the response
+                return response.json();
+            })
+            .then(data => {
+                console.log('Fetched Data:', data); // Log fetched data
+                let vaksinWajib = '';
+                let vaksinTambahan = '';
+
+                data.forEach(item => {
+                    if (item.status_vaksin === 'Wajib') {
+                        vaksinWajib = item.nama_tindakan;
+                    } else if (item.status_vaksin === 'Tambahan') {
+                        vaksinTambahan = item.nama_tindakan;
+                    }
+                });
+
+                document.getElementById('vaksin_wajib').value = vaksinWajib;
+                document.getElementById('vaksin_tambahan').value = vaksinTambahan;
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+            document.getElementById('vaksin_wajib').value = '';
+            document.getElementById('vaksin_tambahan').value = '';
+        }
+    });
+
+
 </script>
-@endsection
+
+@endpush
