@@ -131,6 +131,10 @@
             row.style.display = rowText.includes(searchValue) ? '' : 'none';
         });
     });
+
+    setInterval(() => {
+        location.reload();
+    }, 15000);
 </script>
 
 @endsection
