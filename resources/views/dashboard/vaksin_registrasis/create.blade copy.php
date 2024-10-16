@@ -218,70 +218,37 @@
 
 @push('scripts')
 <script>
-      document.getElementById('search_button').addEventListener('click', function() {
-    const query = document.getElementById('search_input').value.trim();
-
-    if (!query) {
-        // Optionally show an alert or message to the user
-        fetch(`/api/pasiens?search=a`)
-            .then(response => response.json())
-            .then(data => {
-                let resultsHtml = '<ul class="list-group">';
-                data.forEach(patient => {
-                    resultsHtml += `
-                        <li class="list-group-item">
-                            ${patient.nama_pasien} - ${patient.no_passport}
-                            <button class="btn btn-primary btn-sm float-end" 
-                            onclick="selectPatient('${patient.id_rm}', 
-                                                    '${patient.nama_pasien}',
-                                                    '${patient.no_passport}',
-                                                    '${patient.tempat_lahir}',
-                                                    '${patient.tgl_lahir}',
-                                                    '${patient.kelamin}',
-                                                    '${patient.pekerjaan}',
-                                                    '${patient.alamat}',    
-                                                    '${patient.telp}')">
-                                                    Pilih</button>
-                        </li>`;
+        document.getElementById('search_button').addEventListener('click', function() {
+            const query = document.getElementById('search_input').value;
+            fetch(`/api/pasiens?search=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultsHtml = '<ul class="list-group">';
+                    data.forEach(patient => {
+                        resultsHtml += `
+                            <li class="list-group-item">
+                                ${patient.nama_pasien} - ${patient.no_passport}
+                                <button class="btn btn-primary btn-sm float-end" 
+                                onclick="selectPatient('${patient.id_rm}', 
+                                                        '${patient.nama_pasien}',
+                                                        '${patient.no_passport}',
+                                                        '${patient.tempat_lahir}',
+                                                        '${patient.tgl_lahir}',
+                                                        '${patient.kelamin}',
+                                                        '${patient.pekerjaan}',
+                                                        '${patient.alamat}',    
+                                                        '${patient.telp}')">
+                                                        Pilih</button>
+                            </li>`;
+                    });
+                    resultsHtml += '</ul>';
+                    document.getElementById('search_results').innerHTML = resultsHtml;
+                    $('#cariPasienModal').modal('hide');
+                })
+                .catch(error => {
+                    console.error('Error fetching patients:', error);
                 });
-                resultsHtml += '</ul>';
-                document.getElementById('search_results').innerHTML = resultsHtml;
-                $('#cariPasienModal').modal('hide');
-        })
-        .catch(error => {
-            console.error('Error fetching patients:', error);
         });
-    }
-
-        fetch(`/api/pasiens?search=${query}`)
-            .then(response => response.json())
-            .then(data => {
-                let resultsHtml = '<ul class="list-group">';
-                data.forEach(patient => {
-                    resultsHtml += `
-                        <li class="list-group-item">
-                            ${patient.nama_pasien} - ${patient.no_passport}
-                            <button class="btn btn-primary btn-sm float-end" 
-                            onclick="selectPatient('${patient.id_rm}', 
-                                                    '${patient.nama_pasien}',
-                                                    '${patient.no_passport}',
-                                                    '${patient.tempat_lahir}',
-                                                    '${patient.tgl_lahir}',
-                                                    '${patient.kelamin}',
-                                                    '${patient.pekerjaan}',
-                                                    '${patient.alamat}',    
-                                                    '${patient.telp}')">
-                                                    Pilih</button>
-                        </li>`;
-                });
-                resultsHtml += '</ul>';
-                document.getElementById('search_results').innerHTML = resultsHtml;
-                $('#cariPasienModal').modal('hide');
-        })
-        .catch(error => {
-            console.error('Error fetching patients:', error);
-        });
-});
 
     function selectPatient(id, nama, no_passport, tempat_lahir, tanggal_lahir, jk, pekerjaan, alamat, no_telp) {
         document.querySelector('input[name="id_pasien"]').value = id;
