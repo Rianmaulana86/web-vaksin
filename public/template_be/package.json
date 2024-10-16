@@ -20,7 +20,6 @@
     "argon dashboard",
     "bootstrap 5",
     "dashboard",
-    "creative tim",
     "html dashboard",
     "html css dashboard",
     "web dashboard",
@@ -31,7 +30,7 @@
     "frontend",
     "responsive bootstrap dashboard"
   ],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/argon-dashboard/issues"

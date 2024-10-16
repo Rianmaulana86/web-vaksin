@@ -40,16 +40,77 @@
         </a>
       </li>
 
+      <!-- Registrasi -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/#') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-badge text-success text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Kasir</span>
+        </a>
+      </li>
 
-            <!-- Dropdown Master Data -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#masterDataMenuVaksin" data-bs-toggle="collapse" aria-expanded="false">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Vaksin</span>
+        </a>
+        <div class="collapse" id="masterDataMenuVaksin">
+          <ul class="nav ms-4">
+            <!-- Master Dokter -->
             <li class="nav-item">
-        <a class="nav-link" href="#masterDataMenu" data-bs-toggle="collapse" aria-expanded="false">
+              <a class="nav-link" href="{{ url('/dokter') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Penjualan Vaksin</span>
+              </a>
+            </li>
+
+            <!-- Master Jenis Vaksinasi -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/vaksin') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Pembelian Vaksin</span>
+              </a>
+            </li>
+
+            <!-- Master Vaksin Tambahan -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/vaksinpaket') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Stok dan Harga Vaksin</span>
+              </a>
+            </li>
+
+            <!-- Master Travel -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/travel') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Master Data Vaksin</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+            <!-- Dropdown Master Data -->
+      <li class="nav-item">
+        <a class="nav-link" href="#masterDataMenuMasterData" data-bs-toggle="collapse" aria-expanded="false">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Master Data</span>
         </a>
-        <div class="collapse" id="masterDataMenu">
+        <div class="collapse" id="masterDataMenuMasterData">
           <ul class="nav ms-4">
             <!-- Master Dokter -->
             <li class="nav-item">
@@ -90,16 +151,6 @@
                 <span class="nav-link-text ms-1">Travel</span>
               </a>
             </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/#') }}">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Setting</span>
-              </a>
-            </li>
          
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/#') }}">
@@ -110,6 +161,14 @@
               </a>
             </li>
          
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/#') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Setting</span>
+              </a>
+            </li>
           
           
           </ul>

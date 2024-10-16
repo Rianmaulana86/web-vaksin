@@ -4,7 +4,6 @@
 
 ![Image](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard/argon-dashboard-2.jpg)
 
-Most complex and innovative Dashboard Made by [Creative Tim](https://creative-tim.com/). Check our latest Free Bootstrap 5 Dashboard.
 
 Designed for those who like bold elements and beautiful websites. Made of hundred of elements, designed blocks and fully coded pages, Argon Dashboard 2 is ready to help you create stunning websites and webapps.
 
@@ -99,7 +98,7 @@ View <a href="https://demos.creative-tim.com/argon-dashboard/pages/dashboard.htm
 ## Download and Installation
 
 - [Download from Github](https://github.com/creativetimofficial/argon-dashboard/archive/master.zip)
-- [Download from Creative Tim](https://www.creative-tim.com/product/argon-dashboard)
+
 
 
 - Install with Npm: `npm i @creative-tim-official/argon-dashboard-free`
@@ -167,7 +166,7 @@ We use GitHub Issues as the official bug tracker for the Argon Dashboard. Here a
 ## Licensing
 
 
-- Copyright &copy; 2022 Creative Tim (https://www.creative-tim.com)
+
 - Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
 
 
