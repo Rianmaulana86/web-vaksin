@@ -7,8 +7,8 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Proses Vaksinasi</h6>
-                    <br>
+                    <h3>PROSES VAKSINASI</h3>
+                    
                     <a class="btn btn-primary btn-sm" href="{{ url('vaksin_registrasis/create') }}">Pendaftaran Vaksinasi</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -30,8 +30,9 @@
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No. Passport</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jenis Vaksin</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Keberangkatan</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tindakan</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Pembayaran Kasir</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tindakan</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Buku dicetak</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Buku ICV Diterima</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><center>Aksi</center></th>
             </tr>
@@ -54,9 +55,22 @@
                         <td>{{ $vaksin->tanggal_berangkat }}</td>
                         <td>
                             <center>
-                            <form action="{{ route('vaksin.update', $vaksin->id) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('kasir.pembayaran', $vaksin->id) }}" method="POST" style="display:inline;" onsubmit="return openInNewWindow(event, this);">    
                                 @csrf
-                                @method('PUT')
+                             
+                                <button class="btn {{ $vaksin->pembayaran_kasir === 'Selesai' ? 'btn-success' : 'btn-danger' }}" 
+                                        type="submit" 
+                                        {{ $vaksin->pembayaran_kasir === 'Selesai' ? 'disabled' : '' }}>
+                                    {{ $vaksin->pembayaran_kasir }}
+                                </button>
+                            </form>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                            <form action="{{ url('/vaksin/suntik/' . $vaksin->id) }}" method="POST" style="display:inline;" onsubmit="return openInNewWindow(event, this);">    
+                                @csrf
+                            
                                 <button class="btn {{ $vaksin->tindakan_suntik === 'Belum' ? 'btn-danger' : 'btn-success' }}" 
                                         type="submit" 
                                         {{ $vaksin->tindakan_suntik === 'Selesai' ? 'disabled' : '' }}>
@@ -67,13 +81,13 @@
                         </td>
                         <td>
                             <center>
-                            <form action="{{ route('vaksin.update', $vaksin->id) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('buku.cetak', $vaksin->id) }}" method="POST" style="display:inline;" onsubmit="return openInNewWindow(event, this);"> 
                                 @csrf
-                                @method('PUT')
-                                <button class="btn {{ $vaksin->pembayaran_kasir === 'Selesai' ? 'btn-success' : 'btn-danger' }}" 
+                            
+                                <button class="btn {{ $vaksin->buku_icv === 'Selesai' ? 'btn-success' : 'btn-danger' }}" 
                                         type="submit" 
-                                        {{ $vaksin->pembayaran_kasir === 'Selesai' ? 'disabled' : '' }}>
-                                    {{ $vaksin->pembayaran_kasir }}
+                                        {{ $vaksin->buku_icv === 'Selesai' ? 'disabled' : '' }}>
+                                    {{ $vaksin->buku_icv }}
                                 </button>
                             </form>
                             </center>
@@ -135,6 +149,40 @@
     setInterval(() => {
         location.reload();
     }, 15000);
+
+
+    function openInNewWindow(event, form) {
+        event.preventDefault(); // Mencegah pengiriman form secara default
+
+        const newWindow = window.open('', '_blank', 'width=800,height=600'); // Membuka jendela baru dengan ukuran tertentu
+
+        // Buat elemen form baru untuk mengirim data
+        const newForm = newWindow.document.createElement('form');
+        newForm.method = form.method;
+        newForm.action = form.action;
+
+        // Tambahkan token CSRF
+        const csrfInput = newWindow.document.createElement('input');
+        csrfInput.type = 'hidden';
+        csrfInput.name = '_token';
+        csrfInput.value = '{{ csrf_token() }}'; // Token CSRF
+
+        newForm.appendChild(csrfInput);
+
+        // Tambahkan input ID
+        const idInput = newWindow.document.createElement('input');
+        idInput.type = 'hidden';
+        idInput.name = 'id';
+        idInput.value = '{{ $vaksin->id }}'; // ID dari vaksin
+
+        newForm.appendChild(idInput);
+
+        // Tambahkan form ke jendela baru dan kirim
+        newWindow.document.body.appendChild(newForm);
+        newForm.submit(); // Kirim form
+
+        return false; // Mencegah pengiriman form asli
+    }
 </script>
 
 @endsection

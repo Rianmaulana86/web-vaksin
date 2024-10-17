@@ -2,7 +2,7 @@
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html" target="_blank">
-      <span class="ms-1 font-weight-bold">Aplikasi Cetak BUKU ICV</span>
+      <span class="ms-1 font-weight-bold">APLIKASI CETAK BUKU ICV</span>
     </a>
   </div>
   <hr class="horizontal dark mt-0">
@@ -14,31 +14,33 @@
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Dashboard</span>
+          <span class="nav-link-text ms-1">DASHBOARD</span>
         </a>
       </li>
 
 
 
-      <!-- Pasien -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/pasien') }}">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Pasien</span>
-        </a>
-      </li>
-
+    
       <!-- Registrasi -->
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/vaksin_registrasis') }}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-badge text-success text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Vaksinasi</span>
+          <span class="nav-link-text ms-1">VAKSINASI</span>
         </a>
       </li>
+
+        <!-- Pasien -->
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url('/pasien') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">PASIEN</span>
+        </a>
+      </li>
+
 
       <!-- Registrasi -->
       <li class="nav-item">
@@ -46,17 +48,16 @@
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-badge text-success text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Kasir</span>
+          <span class="nav-link-text ms-1">KASIR</span>
         </a>
       </li>
-
 
       <li class="nav-item">
         <a class="nav-link" href="#masterDataMenuVaksin" data-bs-toggle="collapse" aria-expanded="false">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Vaksin</span>
+          <span class="nav-link-text ms-1">VAKSIN</span>
         </a>
         <div class="collapse" id="masterDataMenuVaksin">
           <ul class="nav ms-4">
@@ -66,7 +67,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Penjualan Vaksin</span>
+                <span class="nav-link-text ms-1">PENJUALAN VAKSIN</span>
               </a>
             </li>
 
@@ -76,7 +77,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Pembelian Vaksin</span>
+                <span class="nav-link-text ms-1">PEMBELIAN VAKSIN</span>
               </a>
             </li>
 
@@ -86,7 +87,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Stok dan Harga Vaksin</span>
+                <span class="nav-link-text ms-1">STOK & HARGA VAKSIN</span>
               </a>
             </li>
 
@@ -96,19 +97,20 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Master Data Vaksin</span>
+                <span class="nav-link-text ms-1">MASTER DATA VAKSIN</span>
               </a>
             </li>
           </ul>
         </div>
       </li>
-            <!-- Dropdown Master Data -->
+
+      <!-- Dropdown Master Data -->
       <li class="nav-item">
         <a class="nav-link" href="#masterDataMenuMasterData" data-bs-toggle="collapse" aria-expanded="false">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Master Data</span>
+          <span class="nav-link-text ms-1">MASTER DATA</span>
         </a>
         <div class="collapse" id="masterDataMenuMasterData">
           <ul class="nav ms-4">
@@ -118,7 +120,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Tenaga Kesehatan</span>
+                <span class="nav-link-text ms-1">TENAGA KESEHATAN</span>
               </a>
             </li>
 
@@ -128,7 +130,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Jenis Vaksinasi</span>
+                <span class="nav-link-text ms-1">JENIS VAKSINASI</span>
               </a>
             </li>
 
@@ -138,7 +140,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Paket Isi Vaksin</span>
+                <span class="nav-link-text ms-1">PAKET ISI VAKSIN</span>
               </a>
             </li>
 
@@ -157,7 +159,7 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Vaksin</span>
+                <span class="nav-link-text ms-1">VAKSIN</span>
               </a>
             </li>
          
@@ -166,10 +168,9 @@
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Setting</span>
+                <span class="nav-link-text ms-1">SETTING</span>
               </a>
             </li>
-          
           
           </ul>
         </div>

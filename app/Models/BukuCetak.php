@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kasir extends Model
+class BukuCetak extends Model
 {
     // Menentukan nama tabel jika tidak sesuai dengan konvensi Laravel
-    protected $table = "kasirs";
+    protected $table = "vaksin_icv_cetak";
 
     // Jika tabel menggunakan kolom primary key yang berbeda dari 'id'
     protected $primaryKey = 'id';

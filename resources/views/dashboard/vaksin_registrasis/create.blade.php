@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label for="nama_pasien" class="form-control-label">Nama Pasien</label>
                                     <input class="form-control" type="text" name="nama_pasien" disabled>
-                                    <input class="form-control" type="text" name="id_pasien" >
+                                    <input class="form-control" type="text" name="id_pasien" hidden >
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -208,7 +208,7 @@
                     </div>
                     <button type="button" class="btn btn-primary" id="search_button">Cari</button>
                 </form>
-                <div id="search_results" class="mt-3"></div>
+                <div id="search_results" class="mt-3" style="max-height: 200px; overflow-y: auto;"></div>
             </div>
         </div>
     </div>
@@ -217,6 +217,7 @@
 
 
 @push('scripts')
+
 <script>
       document.getElementById('search_button').addEventListener('click', function() {
     const query = document.getElementById('search_input').value.trim();
@@ -246,10 +247,10 @@
                 });
                 resultsHtml += '</ul>';
                 document.getElementById('search_results').innerHTML = resultsHtml;
-                $('#cariPasienModal').modal('hide');
+              
         })
         .catch(error => {
-            console.error('Error fetching patients:', error);
+        
         });
     }
 
@@ -279,7 +280,7 @@
                 $('#cariPasienModal').modal('hide');
         })
         .catch(error => {
-            console.error('Error fetching patients:', error);
+           // console.error('Error fetching patients:', error);
         });
 });
 
@@ -291,10 +292,7 @@
         document.querySelector('input[name="tempat_lahir"]').value = tempat_lahir;
         document.querySelector('input[name="tgl_lahir"]').value =   tanggal_lahir;
         document.querySelector('input[name="kelamin"]').value =     jk;
-        document.querySelector('input[name="pekerjaan"]').value =   pekerjaan;
-        document.querySelector('input[name="alamat"]').value =      alamat;
-        document.querySelector('input[name="no_telp"]').value =     no_telp;
-        document.querySelector('input[name="warga_negara"]').value = "INDONESIA";
+    
         $('#cariPasienModal').modal('hide');
     }
 
@@ -366,7 +364,6 @@
         const selectedOption = this.options[this.selectedIndex];
         const alamat = selectedOption.getAttribute('data-alamat');
         const kontak = selectedOption.getAttribute('data-kontak');
-
         document.getElementById('alamattravel').value = alamat || '';
         document.getElementById('kontaktravel').value = kontak || '';
     });

@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
-use App\Models\Kasir;
-use App\Models\Vaksin;
-use App\Models\VaksinRegistrasis;
+use App\Models\Pasien;
+use App\Models\BukuCetak;
 use Illuminate\Http\Request;
 
-class KasirController extends Controller
+class BukuicvController extends Controller
 {
     public function index(Request $request)
     {
@@ -31,19 +30,19 @@ class KasirController extends Controller
 
     public function create()
     {
-        return view('dashboard.kasir.create');
+        return view('dashboard.vaksin_icv_cetak.create');
     }
 
     public function store(Request $request)
     {
-        Kasir::create($request->all());
-        return redirect()->back()->with('success', 'Data Kasir berhasil ditambahkan.');
+        VaksinIcvCetak::create($request->all());
+        return redirect()->back()->with('success', 'Buku ICV berhasil dicetak.');
     }
 
     public function edit($id)
     {
         $kasir= Kasir::findOrFail($id);
-        return view('dashboard.Kasir.edit', compact('kasir'));
+        return view('dashboard.vaksin_icv_cetak.edit', compact('kasir'));
     }
 
     public function update(Request $request, $id)
@@ -62,13 +61,13 @@ class KasirController extends Controller
     }
 
 
-    public function setPembayaran(Request $request, $id)
+    public function bukuIcvCetak(Request $request, $id)
     {
       
-        $kasir = Kasir::all();
-        $vaksin = Vaksin::all();
        
-        return view('dashboard.kasir.setPembayaran', compact('vaksin','kasir'));
+        $vaksinIcvCetak = BukuCetak::all();
+       
+        return view('dashboard.vaksin_icv_cetak.create', compact('vaksinIcvCetak'));
 
 
     }

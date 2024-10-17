@@ -12,6 +12,7 @@ use App\Http\Controllers\Main\VaksinController;
 use App\Http\Controllers\Main\VaksinRegistrasisController;
 use App\Http\Controllers\Main\VaksinIsiPaketController;
 use App\Http\Controllers\Main\KasirController;
+use App\Http\Controllers\Main\BukuicvController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaksin_registrasis', VaksinRegistrasisController::class);
     Route::resource('vaksinpaket', VaksinIsiPaketController::class);
     Route::resource('kasir', KasirController::class);
+    Route::resource('vaksin_icv_cetak', BukuicvController::class);
+    Route::post('/vaksin/suntik/{id}', [VaksinRegistrasisController::class, 'setTindakanSuntik']);
+    Route::post('/kasir/pembayaran/{id}', [KasirController::class, 'setPembayaran'])->name('kasir.pembayaran');
+    Route::post('/buku/cetak/{id}', [BukuicvController::class, 'bukuIcvCetak'])->name('buku.cetak');
+    
 
     //api
     Route::get('/vaksin-isi/{id}', [VaksinController::class, 'getVaksinIsi']);

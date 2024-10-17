@@ -8,7 +8,6 @@
             <div class="card mb-4">
                 <div class="card-header pb-0">
                     <h3>DAFTAR PASIEN VAKSIN</h3>
-                    <br>
                     <a class="btn btn-danger btn-sm" href="{{ url('pasien/create') }}">INPUT PASIEN</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -43,8 +42,9 @@
                                             <td>{{ $pasien->tempat_lahir }}</td>
                                             <td>{{ $pasien->tgl_lahir }}</td>
                                             <td>{{ $pasien->kelamin }}</td>
-                                            <td>{{ $pasien->no_passport }}</td>
                                             <td>{{ $pasien->pekerjaan }}</td>
+                                            <td>{{ $pasien->telp }}</td>
+                                            
                                             <td>
                                                 <a class="btn btn-warning" href="{{ route('pasien.edit', $pasien->id_rm) }}">Edit</a>
                                                 <form action="{{ route('pasien.destroy', $pasien->id_rm) }}" method="POST" style="display:inline;">

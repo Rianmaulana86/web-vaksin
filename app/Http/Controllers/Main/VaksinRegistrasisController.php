@@ -26,7 +26,7 @@ class VaksinRegistrasisController extends Controller
             })
             ->orderBy('id', 'desc') 
             ->paginate(20); 
-    
+
         return view('dashboard.vaksin_registrasis.index', compact('vaksin_registrasis', 'search'));
     }
     
@@ -70,8 +70,35 @@ class VaksinRegistrasisController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Data gagal disimpan!']);
         }
+
+        $search = $request->input('search');
+        $vaksin_registrasis = VaksinRegistrasis::with('pasien','jenisVaksin')
+            ->when($search, function ($query, $search) {
+                return $query->where('no_reg', 'like', "%{$search}%")
+                             ->orWhereHas('pasien', function ($query) use ($search) {
+                                 $query->where('nama_pasien', 'like', "%{$search}%")
+                                       ->orWhere('no_rm', 'like', "%{$search}%")
+                                       ->orWhere('no_passport', 'like', "%{$search}%");
+                             });
+            })
+            ->orderBy('id', 'desc') 
+            ->paginate(20); 
     
-        return redirect()->back()->with('success', 'Registrasi vaksin Pasien berhasil!');
+        return view('dashboard.vaksin_registrasis.index', compact('vaksin_registrasis', 'search'))->with('success', 'Registrasi vaksin Pasien berhasil!');
+  
     }
     
+
+    public function setTindakanSuntik(Request $request, $id)
+    {
+        $dokters = Dokter::where('posisi', 'Dokter')->get();
+        $asistens = Dokter::where('posisi', 'Asisten')->get();
+        $country = Country::all();
+        $vaksin = Vaksin::all();
+        $travel = Travel::all();
+       
+        return view('dashboard.vaksin_registrasis.setTindakan', compact('dokters', 'asistens', 'country', 'vaksin','travel'));
+
+
+    }
 }
