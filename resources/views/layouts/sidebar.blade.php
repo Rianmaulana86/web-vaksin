@@ -102,7 +102,9 @@
           </ul>
         </div>
       </li>
-            <!-- Dropdown Master Data -->
+
+      @if (Auth::user()->is_admin == 1)
+           <!-- Dropdown Master Data -->
       <li class="nav-item">
         <a class="nav-link" href="#masterDataMenuMasterData" data-bs-toggle="collapse" aria-expanded="false">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -174,6 +176,9 @@
           </ul>
         </div>
       </li>
+      @endif
+
+     
 
     </ul>
   </div>

@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
 
     //api
     Route::get('/vaksin-isi/{id}', [VaksinController::class, 'getVaksinIsi']);
+
+    Route::get('print/passbook/{id}', [VaksinController::class, 'printPasBook']);
     
     
 
