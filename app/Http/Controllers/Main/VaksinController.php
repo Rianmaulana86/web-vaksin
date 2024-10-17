@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pasien;
 use App\Models\Vaksin;
 use App\Models\VaksinPaket;
 use Illuminate\Http\Request;
@@ -57,4 +58,14 @@ class VaksinController extends Controller
     //     $vaksin_isi = VaksinPaket::where('id_jenis_paket', $id)->get();
     //     return response()->json($vaksin_isi);
     // }
+
+    public function printPasbook($id) {
+        $pasien = Pasien::find($id);
+        $data = [
+            "nama" => $pasien->nama,
+            "passport" => $pasien->no_passport
+        ];
+        
+        return view('dashboard.vaksin_registrasis.printPasbook', $data);
+    }
 }
