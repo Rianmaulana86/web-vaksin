@@ -63,12 +63,15 @@ class BukuicvController extends Controller
 
     public function bukuIcvCetak(Request $request, $id)
     {
-      
-       
-        $vaksinIcvCetak = BukuCetak::all();
-       
+
+        $vaksinIcvCetak = BukuCetak::all();       
         return view('dashboard.vaksin_icv_cetak.create', compact('vaksinIcvCetak'));
 
+    }
 
+    public function bukuIcvDiterima(Request $request, $id)
+    {
+        $vaksinIcvDiterima = BukuCetak::all();       
+        return view('dashboard.vaksin_icv_cetak.bukuDiterima    ', compact('vaksinIcvDiterima'));
     }
 }

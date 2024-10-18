@@ -15,11 +15,10 @@ class distributor_pbfs extends Model
 {
     use SoftDeletes;
 
-    public $table = 'distributor_pbfs';
+    public $table = 'vaksin_distributor_pbfs';
     
 
-    protected $dates = ['deleted_at'];
-
+    //protected $dates = ['deleted_at'];
 
 
     public $fillable = [

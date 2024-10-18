@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/vaksin/suntik/{id}', [VaksinRegistrasisController::class, 'setTindakanSuntik']);
     Route::post('/kasir/pembayaran/{id}', [KasirController::class, 'setPembayaran'])->name('kasir.pembayaran');
     Route::post('/buku/cetak/{id}', [BukuicvController::class, 'bukuIcvCetak'])->name('buku.cetak');
-    
+    Route::post('/buku/diterima/{id}', [BukuicvController::class, 'bukuIcvDiterima'])->name('buku.diterima');
 
     //api
     Route::get('/vaksin-isi/{id}', [VaksinController::class, 'getVaksinIsi']);

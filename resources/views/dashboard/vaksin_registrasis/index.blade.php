@@ -30,11 +30,6 @@
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No. Passport</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jenis Vaksin</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Keberangkatan</th>
-<<<<<<< HEAD
-=======
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Print</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tindakan</th>
->>>>>>> f39e1595dc2e97fd4f6ed86bed99f9707c8968a1
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Pembayaran Kasir</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tindakan</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Buku dicetak</th>
@@ -58,7 +53,7 @@
                         <td>{{ $vaksin->pasien->no_passport }}</td>
                         <td>{{ $vaksin->jenisVaksin->nama_jenis_paket_vaksin ?? 'N/A' }}</td>
                         <td>{{ $vaksin->tanggal_berangkat }}</td>
-                        <td>
+                        <!-- <td>
                             @if ($vaksin->tindakan_suntik === 'Selesai' && $vaksin->buku_icv === 'Selesai' && $vaksin->pembayaran_kasir === 'Selesai')
                                 <a class="btn btn-success d-flex align-items-center justify-content-center" href="print/passbook/{{ $vaksin->pasien->id_rm }}">
                                     <i class="fa fa-print"></i> 
@@ -69,7 +64,7 @@
                                     <i class="fa fa-print"></i> 
                                 </a>
                             @endif
-                        </td>
+                        </td> -->
                         <td>
                             <center>
                             <form action="{{ route('kasir.pembayaran', $vaksin->id) }}" method="POST" style="display:inline;" onsubmit="return openInNewWindow(event, this);">    
@@ -111,9 +106,8 @@
                         </td>
                         <td>
                             <center>
-                            <form action="{{ route('vaksin.update', $vaksin->id) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('buku.diterima', $vaksin->id) }}"method="POST" style="display:inline;" onsubmit="return openInNewWindow(event, this);"> 
                                 @csrf
-                                @method('PUT')
                                 <button class="btn {{ $vaksin->buku_icv === 'Selesai' ? 'btn-success' : 'btn-danger' }}" 
                                         type="submit" 
                                         {{ $vaksin->buku_icv === 'Selesai' ? 'disabled' : '' }}>
