@@ -15,6 +15,7 @@ use App\Http\Controllers\Main\KasirController;
 use App\Http\Controllers\Main\BukuicvController;
 use App\Http\Controllers\Main\VaksinpenjualanController;
 use App\Http\Controllers\Main\VaksinPembelianController;
+use App\Http\Controllers\Main\VaksinMasterController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('perawat', PerawatController::class);
     Route::resource('poli', PoliController::class);
     Route::resource('vaksin', VaksinController::class);
+    Route::resource('vaksinmaster', VaksinMasterController::class);
     Route::resource('travel', TravelController::class);
     Route::resource('vaksin_registrasis', VaksinRegistrasisController::class);
     Route::resource('vaksinpaket', VaksinIsiPaketController::class);

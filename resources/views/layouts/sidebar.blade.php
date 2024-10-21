@@ -94,16 +94,6 @@
                 <span class="nav-link-text ms-1">STOK & HARGA VAKSIN</span>
               </a>
             </li>
-
-            <!-- Master Travel -->
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/travel') }}">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">MASTER DATA VAKSIN</span>
-              </a>
-            </li>
           </ul>
         </div>
       </li> 
@@ -158,7 +148,7 @@
             </li>
          
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/#') }}">
+              <a class="nav-link" href="{{ url('/vaksinmaster') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-bus-front-12 text-danger text-sm opacity-10"></i>
                 </div>

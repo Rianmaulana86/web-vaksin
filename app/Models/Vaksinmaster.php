@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vaksin_master extends Model
+class Vaksinmaster extends Model
 {
     // Menentukan nama tabel jika tidak sesuai dengan konvensi Laravel
     protected $table = "vaksin";
