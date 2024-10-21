@@ -19,8 +19,15 @@ class VaksinRegistrasis extends Model
                 return $this->belongsTo(Pasien::class, 'id_pasien');
         }
 
-        public function jenisVaksin()
+        public function vaksinpaket()
+        {
+                return $this->belongsTo(Vaksin::class, 'jenis_vaksinasi');
+        }
+
+        public function jenisVaksin()   
         {
                 return $this->belongsTo(Vaksin::class, 'jenis_vaksinasi'); // Adjust the foreign key if necessary
         }
+
+        
 }

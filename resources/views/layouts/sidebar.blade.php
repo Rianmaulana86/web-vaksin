@@ -67,21 +67,21 @@
           <ul class="nav ms-4">
             <!-- Master Dokter -->
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/dokter') }}">
+              <a class="nav-link" href="{{ url('/vaksinpenjualan') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">PENJUALAN VAKSIN</span>
+                <span class="nav-link-text ms-1">Penjualan Vaksin</span>
               </a>
-            </li>
+            </li> 
 
             <!-- Master Jenis Vaksinasi -->
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/vaksin') }}">
+              <a class="nav-link" href="{{ url('/vaksinpembelian') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-check-bold text-warning text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">PEMBELIAN VAKSIN</span>
+                <span class="nav-link-text ms-1">Pembelian Vaksin</span>
               </a>
             </li>
 
