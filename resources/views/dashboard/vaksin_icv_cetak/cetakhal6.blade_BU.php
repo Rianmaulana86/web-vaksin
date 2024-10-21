@@ -28,32 +28,32 @@
             .name-position {
                 position: absolute;
                 left: 4.5cm; /* Posisi x */
-                top: 1.6cm; /* Posisi y */
+                top: 1.4cm; /* Posisi y */
             }  
             .birthdate-position {
                 position: absolute;
                 left: 2.7cm; /* Posisi x */
-                top: 2.2cm; /* Posisi y */
+                top: 2cm; /* Posisi y */
             }
             .country-position {
                 position: absolute;
                 left: 2.4cm; /* Posisi x */
-                top: 2.8cm; /* Posisi y */
+                top: 2.6cm; /* Posisi y */
             }  
             .sex-position {
                 position: absolute;
                 left: 5.6cm; /* Posisi x */
-                top: 2.2cm; /* Posisi y */
+                top: 2cm; /* Posisi y */
             }
             .passport-position {
                 position: absolute;
                 left: 6.5cm; /* Posisi x */
-                top: 3.3cm; /* Posisi y */
+                top: 3.1cm; /* Posisi y */
             }
             .vaksin-position {
                 position: absolute;
                 left: 1cm; /* Posisi x */
-                top: 5.3cm; /* Posisi y */
+                top: 5.1cm; /* Posisi y */
             }  
             .vaksinmerk-position {
                 position: absolute;
@@ -99,10 +99,10 @@
                         <td class="name-position">{{ $pasien->nama_pasien }}</td> <!-- Tambahkan kelas untuk posisi -->
                     </tr>
                     <tr>
-                        <td class="birthdate-position">{{ ucfirst(\Carbon\Carbon::parse($pasien->tgl_lahir)->format('d-M-Y')) }}</td> <!-- Tambahkan kelas untuk posisi -->
+                        <td class="birthdate-position">{{ $pasien->nama_pasien }}</td> <!-- Tambahkan kelas untuk posisi -->
                     </tr>
                     <tr>
-                        <td class="sex-position">{{ $pasien->kelamin === 'Laki-laki' ? 'MALE' : 'FEMALE' }}</td> <!-- Tambahkan kelas untuk posisi -->
+                        <td class="sex-position">{{ $pasien->kelamin }}</td> <!-- Tambahkan kelas untuk posisi -->
                     </tr>
                     <tr>
                         <td class="country-position">INDONESIA</td> <!-- Tambahkan kelas untuk posisi -->

@@ -48,7 +48,7 @@
                             <td>
                                 <a class="btn {{ $d->print_cover === 'N' ? 'btn-danger' : 'btn-success' }}" 
                                   href="javascript:void(0);" 
-                                  onclick="{{ $d->print_cover === 'Y' ? 'return false;' : 'window.open(\'vaksin_icv_cetak/cetakhal6/' . $d->id . '\', \'_blank\', \'width=320,height=320\');' }}">
+                                  onclick="{{ $d->print_cover === 'Y' ? 'return false;' : 'window.open(\'vaksin_icv_cetak/cetakhal6/' . $d->id . '\', \'_blank\', \'width=320,height=480\');' }}">
                                     <i class="fa fa-print"></i> {{ $d->print_cover === 'Y' ? 'sudah' : 'belum' }}
                                 </a>
                             </td>
