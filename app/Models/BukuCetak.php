@@ -17,4 +17,9 @@ class BukuCetak extends Model
 
     // Jika Anda ingin menentukan field yang dapat diisi (mass assignable)
     protected $guarded = [];
+
+    public function pasien()
+    {
+            return $this->belongsTo(Pasien::class, 'id_pasien');
+    }
 }

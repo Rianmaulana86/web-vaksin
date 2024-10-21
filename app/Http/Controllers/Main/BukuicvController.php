@@ -12,21 +12,21 @@ class BukuicvController extends Controller
 {
     public function index(Request $request)
     {
-        $kasir= Kasir::all(); 
+        $pasien= Pasien::all(); 
         $search = $request->input('search');
-        $vaksin_registrasis = VaksinRegistrasis::with('pasien','jenisVaksin')
+        $bukucetak = BukuCetak::with('pasien')
             ->when($search, function ($query, $search) {
-                return $query->where('no_reg', 'like', "%{$search}%")
+                return $query->where('id', 'like', "%{$search}%")
                              ->orWhereHas('pasien', function ($query) use ($search) {
-                                 $query->where('nama_pasien', 'like', "%{$search}%")
-                                       ->orWhere('no_rm', 'like', "%{$search}%")
-                                       ->orWhere('no_passport', 'like', "%{$search}%");
+                                 $query->where('nama_pasien', 'like', "%{$search}%");
+                                       //->orWhere('no_rm', 'like', "%{$search}%")
+                                       //->orWhere('no_passport', 'like', "%{$search}%");
                              });
             })
             ->orderBy('id', 'desc') 
             ->paginate(20); 
     
-        return view('dashboard.kasir.index', compact('vaksin_registrasis', 'search','kasir'));
+        return view('dashboard.vaksin_icv_cetak.index', compact('bukucetak', 'search'));
     }
 
     public function create()
@@ -74,5 +74,22 @@ class BukuicvController extends Controller
     {
         $vaksinIcvDiterima = BukuCetak::all();       
         return view('dashboard.vaksin_icv_cetak.bukuDiterima    ', compact('vaksinIcvDiterima'));
+    }
+
+
+    public function bukuIcvCetakHal1(Request $request, $id)
+    {
+
+        $pasien = Pasien::findOrFail($id);       
+        return view('dashboard.vaksin_icv_cetak.cetakhal1', compact('pasien'));
+
+    }
+
+    public function bukuIcvCetakHal6(Request $request, $id)
+    {
+
+        $pasien = Pasien::findOrFail($id);       
+        return view('dashboard.vaksin_icv_cetak.cetakhal6', compact('pasien'));
+
     }
 }
