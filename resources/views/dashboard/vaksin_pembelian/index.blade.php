@@ -9,7 +9,7 @@
                 <div class="card-header pb-0">
                     <h6>Daftar Paket Vaksin</h6>
                     <br>
-                    <a class="btn btn-primary btn-sm" href="{{ url('vaksin/create') }}">Tambah Pembelian Vaksin</a>
+                    <a class="btn btn-primary btn-sm" href="{{ url('vaksinpembelian/create') }}">Tambah Pembelian Vaksin</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

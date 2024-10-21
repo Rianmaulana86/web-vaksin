@@ -13,35 +13,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class distributor_pbfs extends Model
 {
-    use SoftDeletes;
 
     public $table = 'vaksin_distributor_pbfs';
     
 
     //protected $dates = ['deleted_at'];
 
+      // Jika tabel menggunakan kolom primary key yang berbeda dari 'id'
+      protected $primaryKey = 'id';
 
-    public $fillable = [
-        
-    ];
 
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        
-    ];
-
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-        
-    ];
+      // Jika Anda ingin menentukan field yang dapat diisi (mass assignable)
+      protected $guarded = [];
 
     
 }
