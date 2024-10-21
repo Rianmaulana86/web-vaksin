@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pasien;
+use App\Models\Kasir;
 use App\Models\BukuCetak;
 use Illuminate\Http\Request;
 

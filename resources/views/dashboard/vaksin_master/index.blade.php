@@ -18,6 +18,7 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jenis Vaksin</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Distributor</th> 
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Stok</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
@@ -33,6 +34,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $vaksin->nama_vaksin }}</td>
+                                            <td>{{ $vaksin->jenis_vaksin }}</td>
                                             <td>{{ $vaksin->distributor_pbfs->nama }}</td>
                                             <td>{{ $vaksin->stok }}</td>
                                             <td>

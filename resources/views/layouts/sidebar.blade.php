@@ -17,22 +17,9 @@
           <span class="nav-link-text ms-1">DASHBOARD</span>
         </a>
       </li>
-
-
-
-    
-      <!-- Registrasi -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/vaksin_registrasis') }}">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-badge text-success text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">VAKSINASI</span>
-        </a>
-      </li>
-
-        <!-- Pasien -->
-        <li class="nav-item">
+     
+         <!-- Pasien -->
+         <li class="nav-item">
         <a class="nav-link" href="{{ url('/pasien') }}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
@@ -40,6 +27,7 @@
           <span class="nav-link-text ms-1">PASIEN</span>
         </a>
       </li>
+    
 
 
       <!-- Registrasi -->
@@ -52,7 +40,27 @@
         </a>
       </li>
 
-    
+       
+      <!-- Registrasi -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/vaksin_registrasis') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-badge text-success text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">VAKSINASI</span>
+        </a>
+      </li>
+
+         <!-- Registrasi -->
+         <li class="nav-item">
+        <a class="nav-link" href="{{ url('/vaksin_icv_cetak') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-badge text-success text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">PRINT BUKU ICV</span>
+        </a>
+      </li>
+
 
       @if (Auth::user()->is_admin == 1)
 

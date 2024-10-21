@@ -55,7 +55,7 @@
                         <td>{{ $vaksin->tanggal_berangkat }}</td>
                         <!-- <td>
                             @if ($vaksin->tindakan_suntik === 'Selesai' && $vaksin->buku_icv === 'Selesai' && $vaksin->pembayaran_kasir === 'Selesai')
-                                <a class="btn btn-success d-flex align-items-center justify-content-center" href="print/passbook/{{ $vaksin->pasien->id_rm }}">
+                                <a class="btn btn-success d-flex align-items-center justify-content-center" href="{{ $vaksin->pasien->id_rm }}">
                                     <i class="fa fa-print"></i> 
                                 </a>
                             @else

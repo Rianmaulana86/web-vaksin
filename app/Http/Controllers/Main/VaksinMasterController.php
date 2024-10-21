@@ -14,7 +14,7 @@ class vaksinMasterController extends Controller
     {
        
         $vaksinMaster = vaksinMaster::with('distributor_pbfs')->get();
-        return view('dashboard.vaksin_master.index', compact('vaksinMaster','distributor_pbfs'));
+        return view('dashboard.vaksin_master.index', compact('vaksinMaster'));
     }
 
     public function create()
