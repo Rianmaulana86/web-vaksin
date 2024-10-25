@@ -53,6 +53,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/vaksin-isi/{id}', [VaksinController::class, 'getVaksinIsi']);
     //print
     Route::get('print/passbook/{id}', [VaksinController::class, 'printPasBook']);
+    //print dokument
+    Route::get('print/pptest/{id}', [VaksinRegistrasisController::class, 'printpptest']);
+    Route::get('print/persetujuan/{id}', [VaksinRegistrasisController::class, 'printpersetujuan']);
+    Route::get('print/permohonan/{id}', [VaksinRegistrasisController::class, 'printpermohonan']);
+    Route::get('print/skrining/{id}', [VaksinRegistrasisController::class, 'printskrining']);
+    Route::get('print/alurproses/{id}', [VaksinRegistrasisController::class, 'printalurproses']);
 
     Route::get('vaksin_icv_cetak/cetakhal1/{id}', [BukuicvController::class, 'bukuIcvCetakHal1']);
     Route::get('vaksin_icv_cetak/cetakhal6/{id}', [BukuicvController::class, 'bukuIcvCetakHal6']);
