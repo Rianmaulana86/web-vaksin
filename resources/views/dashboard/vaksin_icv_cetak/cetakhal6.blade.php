@@ -22,13 +22,26 @@
                 margin: 0; /* Mengatur margin untuk menghilangkan header/footer */
             }
             .name-position, .passport-position, .sex-position, .birthdate-position, .country-position, .passport-position, .vaksin-position, .vaksinmerk-position, .datevaksin-position, .dokter-position, .valid-start-vaksin-position, .jabatan-dokter-position,  .valid-until-vaksin-position {
-                font-size: 7pt; /* Ukuran font */
+                font-size: 8pt; /* Ukuran font */
                 font-weight: bold; /* Gaya teks bold */
+                font-family: Cambria, serif; 
+                font-weight: 900;
+                text-decoration: none;
+                white-space: nowrap; /* Prevent text wrapping */
+                text-decoration: none; /* Remove any underlines */
+                border: none; /* Ensure no borders are affecting it */
+                outline: none; /* Ensure no outlines are affecting it */
+                padding: 0; /* Remove any padding */
+                margin: 0; /* Remove any margin */
+
+               
+                
             }
             .name-position {
                 position: absolute;
                 left: 4.5cm; /* Posisi x */
                 top: 1.6cm; /* Posisi y */
+                text-decoration: none;
             }  
             .birthdate-position {
                 position: absolute;

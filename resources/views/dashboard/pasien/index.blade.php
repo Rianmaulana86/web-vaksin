@@ -5,10 +5,11 @@
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
-            <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h3>DAFTAR PASIEN VAKSIN</h3>
-                    <a class="btn btn-danger btn-sm" href="{{ url('pasien/create') }}">INPUT PASIEN</a>
+            <div class="card mb-4"> 
+                <div class="card-header pb-0 d-flex align-items-center justify-content-between">
+                <a class="btn btn-primary btn-lg" href="{{ url('pasien/create') }}">INPUT PASIEN</a>    
+                <h3>P A S I E N      &nbsp;&nbsp;    V A K S I N</h3>
+                   
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -35,18 +36,18 @@
 
                                     @foreach ($pasiens as $pasien)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $pasien->no_rm }}</td>
-                                            <td>{{ $pasien->nama_pasien }}</td>
-                                            <td>{{ $pasien->no_passport }}</td>
-                                            <td>{{ $pasien->tempat_lahir }}</td>
-                                            <td>{{ $pasien->tgl_lahir }}</td>
-                                            <td>{{ $pasien->kelamin }}</td>
-                                            <td>{{ $pasien->pekerjaan }}</td>
-                                            <td>{{ $pasien->telp }}</td>
+                                            <td class="text-center">{{ $no++ }}</td>
+                                            <td class="text-center">{{ $pasien->no_rm }}</td>
+                                            <td class="text-center">{{ $pasien->nama_pasien }}</td>
+                                            <td class="text-center">{{ $pasien->no_passport }}</td>
+                                            <td class="text-center">{{ $pasien->tempat_lahir }}</td>
+                                            <td class="text-center">{{ $pasien->tgl_lahir }}</td>
+                                            <td class="text-center">{{ $pasien->kelamin }}</td>
+                                            <td class="text-center">{{ $pasien->pekerjaan }}</td>
+                                            <td class="text-center">{{ $pasien->telp }}</td>
                                             
                                             <td>
-                                                <a class="btn btn-warning" href="{{ route('pasien.edit', $pasien->id_rm) }}">Edit</a>
+                                                <a class="btn btn-warning btn-lg" href="{{ route('pasien.edit', $pasien->id_rm) }}">Edit</a>
                                                 <form action="{{ route('pasien.destroy', $pasien->id_rm) }}" method="POST" style="display:inline;">
                                                     <!-- @csrf -->
                                                     <!-- @method('DELETE') -->

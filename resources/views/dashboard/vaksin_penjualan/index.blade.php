@@ -6,9 +6,10 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h3>Penjualan Vaksin</h3>
-                   
+
+                <div class="card-header pb-0 d-flex align-items-center justify-content-between">  
+                    <h3></h3>  
+                    <h3>P&nbsp;e&nbsp;n&nbsp;j&nbsp;u&nbsp;a&nbsp;l&nbsp;a&nbsp;n&nbsp;&nbsp; V&nbsp;a&nbsp;k&nbsp;s&nbsp;i&nbsp;n</h3>          
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

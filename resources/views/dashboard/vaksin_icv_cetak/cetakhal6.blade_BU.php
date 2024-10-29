@@ -10,10 +10,12 @@
     <style>
         @media print {
             body {
-                visibility: hidden;
+            visibility: hidden;
+            font-family: Cambria, serif; /* Use Cambria font */
             }
             .page-passbook, .page-passbook * {
                 visibility: visible;
+                font-family: Cambria, serif; /* Use Cambria font */
             }
             .print {
                 display: none; /* Sembunyikan tombol print saat mencetak */
@@ -24,6 +26,7 @@
             .name-position, .passport-position, .sex-position, .birthdate-position, .country-position, .passport-position, .vaksin-position, .vaksinmerk-position, .datevaksin-position, .dokter-position, .valid-start-vaksin-position, .jabatan-dokter-position,  .valid-until-vaksin-position {
                 font-size: 7pt; /* Ukuran font */
                 font-weight: bold; /* Gaya teks bold */
+                font-family: Cambria, serif; 
             }
             .name-position {
                 position: absolute;

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <style>
     .custom-button {
         padding: 20px 30px; /* Atur padding sesuai kebutuhan */
@@ -48,8 +50,14 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="tgl_lahir" class="form-control-label">Tanggal Lahir</label>
-                                    <input class="form-control" type="date" name="tgl_lahir" disabled>
+                                    <div class="d-flex">
+                                        <label for="tgl_lahir" class="form-control-label">Tanggal Lahir</label>
+                                        <label for="umur"  class="form-control-label">/&nbsp;Umur</label>
+                                    </div>
+                                    <div class="d-flex">
+                                            <input class="form-control" type="date" name="tgl_lahir" disabled>
+                                            <input class="form-control" type="text" name="umur" id="umur">
+                                    </div>
                                 </div>
                             </div>
 
@@ -59,30 +67,8 @@
                                     <input class="form-control" type="text" name="kelamin" disabled>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="pekerjaan" class="form-control-label">Pekerjaan</label>
-                                    <input class="form-control" type="text" name="pekerjaan" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-3">  
-                                <div class="form-group">
-                                    <label for="alamat" class="form-control-label">Alamat</label>
-                                    <textarea class="form-control" name="alamat" id="alamat" rows="2" disabled></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="telp" class="form-control-label">No.Telp/Whatsapp</label>
-                                    <input class="form-control" type="text" name="telp" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="warga_negara" class="form-control-label">Warga Negara</label>
-                                    <input class="form-control" type="text" name="warga_negara" disabled>
-                                </div>
-                            </div> -->
+
+                           
                         </div>
                         <hr>
                         <div class="row">
@@ -99,7 +85,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label for="asisten" class="form-control-label">Asisten</label>
+                                                    <label for="asisten" class="form-control-label">Assisten Dokter </label>
                                                     <select class="form-control" name="asisten" required>
                                                         <option value="">Pilih Asisten</option>
                                                         @foreach($asistens as $asisten)
@@ -153,10 +139,25 @@
                             <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="telp" class="form-control-label">Wanita Usia Subur(Usia 15-49 Tahun)</label>
-                                        <input class="form-control" type="text" name="status" required>
+                                        <select class="form-control" name="status" required>
+                                            <option value="non-wus">--Pilih--</option>
+                                            <option value="wus">wus</option>
+                                            <option value="non-wus">non-wus</option>
+                                        </select>
                                     </div>
                             </div>
+                            <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="telp" class="form-control-label">PPTEST</label>
+                                        <select class="form-control" name="pp_test" required>
+                                            <option value="tidak">--Pilih--</option>
+                                            <option value="ya">Ya</option>
+                                            <option value="tidak">Tidak</option>
+                                        </select>
+                                    </div>  
+                            </div>
                         </div>
+                        
                         <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -182,7 +183,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <button class="btn btn-primary btn-sm ms-auto" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-lg" type="submit">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -195,7 +196,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="cariPasienModalLabel">Cari Pasien</h5>
+                <h3 class="modal-title" id="cariPasienModalLabel">Cari Pasien</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -203,10 +204,13 @@
             <div class="modal-body">
                 <form id="searchPatientForm">
                     <div class="form-group">
-                        <label for="search_input">Nama atau No. Passport</label>
+                        <label for="search_input"><h5>Nama atau No. Passport</h5></label>
                         <input type="text" class="form-control" id="search_input" placeholder="Masukkan Nama atau No. Passport">
                     </div>
-                    <button type="button" class="btn btn-primary" id="search_button">Cari</button>
+                    <div class="d-flex justify-content-between mt-3">
+                        <button type="button" class="btn btn-primary" id="search_button">Cari</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                    </div>
                 </form>
                 <div id="search_results" class="mt-3" style="max-height: 200px; overflow-y: auto;"></div>
             </div>
@@ -217,7 +221,6 @@
 
 
 @push('scripts')
-
 <script>
       document.getElementById('search_button').addEventListener('click', function() {
     const query = document.getElementById('search_input').value.trim();
@@ -239,9 +242,7 @@
                                                     '${patient.tempat_lahir}',
                                                     '${patient.tgl_lahir}',
                                                     '${patient.kelamin}',
-                                                    '${patient.pekerjaan}',
-                                                    '${patient.alamat}',    
-                                                    '${patient.telp}')">
+                                                    '${patient.age}')">
                                                     Pilih</button>
                         </li>`;
                 });
@@ -263,37 +264,32 @@
                         <li class="list-group-item">
                             ${patient.nama_pasien} - ${patient.no_passport}
                             <button class="btn btn-primary btn-sm float-end" 
-                            onclick="selectPatient('${patient.id_rm}', 
+                            onclick="selectPatient(${patient.id_rm}, 
                                                     '${patient.nama_pasien}',
                                                     '${patient.no_passport}',
                                                     '${patient.tempat_lahir}',
                                                     '${patient.tgl_lahir}',
                                                     '${patient.kelamin}',
-                                                    '${patient.pekerjaan}',
-                                                    '${patient.alamat}',    
-                                                    '${patient.telp}')">
+                                                    '${patient.age}')">
                                                     Pilih</button>
                         </li>`;
                 });
                 resultsHtml += '</ul>';
                 document.getElementById('search_results').innerHTML = resultsHtml;
-                $('#cariPasienModal').modal('hide');
         })
         .catch(error => {
            // console.error('Error fetching patients:', error);
         });
 });
 
-    function selectPatient(id, nama, no_passport, tempat_lahir, tanggal_lahir, jk, pekerjaan, alamat, no_telp) {
-        document.querySelector('input[name="id_pasien"]').value = id;
-        document.querySelector('input[name="nama_pasien"]').value = nama;
-        document.querySelector('input[name="no_passport"]').value = no_passport;
-
-        document.querySelector('input[name="tempat_lahir"]').value = tempat_lahir;
-        document.querySelector('input[name="tgl_lahir"]').value =   tanggal_lahir;
-        document.querySelector('input[name="kelamin"]').value =     jk;
-    
-        $('#cariPasienModal').modal('hide');
+    function selectPatient(id, nama, no_passport, tempat_lahir, tanggal_lahir, jk,umur) {
+        document.querySelector('input[name="id_pasien"]').value     = id;
+        document.querySelector('input[name="nama_pasien"]').value   = nama;
+        document.querySelector('input[name="no_passport"]').value   = no_passport;
+        document.querySelector('input[name="tempat_lahir"]').value  = tempat_lahir;
+        document.querySelector('input[name="tgl_lahir"]').value     = tanggal_lahir;
+        document.querySelector('input[name="kelamin"]').value       = jk;
+        document.querySelector('input[name="umur"]').value          = umur;
     }
 
     document.getElementById('jenis_vaksinasi').addEventListener('change', function() {
@@ -326,8 +322,6 @@
         }
     });
 
-
-
     document.getElementById('travel').addEventListener('change', function() {
     const travelId = this.value;
     if (travelId) {
@@ -336,13 +330,10 @@
                 return response.json();
             })
             .then(data => {
-             
-
                 data.forEach(item => {
                    
                         alamatTravel = item.alamat;
                         kontakTravel = item.kontak;
-                  
                 });
 
                 document.getElementById('alamattravel').value = alamatTravel;
@@ -367,4 +358,8 @@
         document.getElementById('alamattravel').value = alamat || '';
         document.getElementById('kontaktravel').value = kontak || '';
     });
+    
+</script>
+
+
 @endpush

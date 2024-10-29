@@ -74,15 +74,19 @@
                                     <input class="form-control" type="text" name="telp" value="{{ $pasien->telp }}">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="warga_negara" class="form-control-label">Warga Negara</label>
                                     <input class="form-control" type="text" name="warga_negara" value="{{ $pasien->warga_negara }}" readonly>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                            <button class="btn btn-primary btn-lg" type="submit" >Edit</button>
+                            </div>
                         </div>
-                        <button class="btn btn-primary btn-sm ms-auto" type="submit">Update</button>
+                       
                     </form>
+                    
                 </div>
             </div>
         </div>

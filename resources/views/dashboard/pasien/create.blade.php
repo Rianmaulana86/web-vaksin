@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-sm ms-auto" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-lg" type="submit">Simpan</button>
                     </form>
                 </div>
             </div>

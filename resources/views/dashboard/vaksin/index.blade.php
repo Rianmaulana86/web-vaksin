@@ -6,10 +6,11 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h6>Daftar Jenis Vaksin</h6>
-                    <br>
-                    <a class="btn btn-primary btn-sm" href="{{ url('vaksin/create') }}">Tambah Jenis Vaksin</a>
+            
+                <div class="card-header pb-0 d-flex align-items-center justify-content-between">
+                <a class="btn btn-primary btn-lg" href="{{ url('vaksin/create') }}">Tambah Jenis Vaksin</a>    
+                <h3>DAFTAR JENIS VAKSIN</h3>
+                   
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

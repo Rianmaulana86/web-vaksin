@@ -33,50 +33,40 @@ class KasirController extends Controller
 
     public function create()
     {
-        return view('dashboard.kasir.create');
+       return view('dashboard.vaksin_registrasis.index');
+       //return redirect()->back()->with('success', 'Data dokter berhasil ditambahkan.');
     }
 
-    public function store(Request $request)
-{
-    // Menggunakan data manual untuk debugging
-    $data = [
-        'no_kwitansi' => sprintf('%06d', (Kasir::max('id') ? Kasir::max('id') + 1 : 1)),
-        'no_registrasi' => 'REG123',    
-        'jumlah_tagihan' => 365000,
-        'diskon'=>0,
-        'total_tagihan' => 100000,
-       'cara_bayar' => 'cash',
-    ];
-
-    // Debug data
-    dd($data);
-
-    // Simpan data ke database
-    Kasir::create($data);
-
-    return redirect()->back()->with('success', 'Data Kasir berhasil ditambahkan.');
-}
-    public function store111(Request $request)
+    public function simpan(Request $request)
     {
-        $validatedData = $request->validate([
-            'cara_bayar' => 'string',
-            'no_registrasi' => 'string',
-            'jumlah_tagihan' => 'required|numeric',
-        ]);
+        \Log::info($request->all()); // Untuk melihat data yang diterima
+        $data = [
+            'no_kwitansi' => sprintf('%06d', (Kasir::max('no_kwitansi') ? Kasir::max('no_kwitansi') + 1 : 1)),
+            'no_reg' => $request->no_reg,
+            'jumlah_tagihan' => (int)$request->jumlah_tagihan,  // Konversi ke integer
+            'diskon' => $request->diskon,
+            'total_tagihan' => (int)$request->total_tagihan,  // Konversi ke integer
+            'cara_bayar' => $request->cara_bayar
+        ];
 
-    
-        // Hitung nomor urut untuk no_kwitansi
-        $lastKwitansi = Kasir::max('id'); // Mengambil ID terakhir
-        $nextKwitansiNumber = $lastKwitansi ? $lastKwitansi + 1 : 1; // Menentukan nomor berikutnya
-        $no_kwitansi = sprintf('%06d', $nextKwitansiNumber); // Format menjadi 000001
-    
-        // Tambahkan no_kwitansi ke data yang akan disimpan
-        $validatedData['no_kwitansi'] = $no_kwitansi;
-    
+        Kasir::create($data);
+        return redirect()->route('vaksin_registrasis.index')->with('success', 'Pembayaran berhasil.');
+    }
+
+    public function store11(Request $request)
+    {
+        $data = [
+            'no_kwitansi' => sprintf('%06d', (Kasir::max('no_kwitansi') ? Kasir::max('no_kwitansi') + 1 : 1)),
+            'no_reg' => $request->no_reg,
+            'jumlah_tagihan' => (int)$request->jumlah_tagihan,  // Konversi ke integer
+            'diskon' => $request->diskon,
+            'total_tagihan' => (int)$request->total_tagihan,  // Konversi ke integer
+            'cara_bayar' => $request->cara_bayar
+        ];
+        //dd($data);
         // Simpan data ke database
-        Kasir::create($validatedData);
-    
-        return redirect()->back()->with('success', 'Data Kasir berhasil ditambahkan.');
+        Kasir::create($data);
+        return redirect()->back()->with('success', 'Pembayaran berhasil.');
     }
 
     public function edit($id)
@@ -106,7 +96,7 @@ class KasirController extends Controller
       
         // $kasir = Kasir::all();
         // $vaksin = Vaksin::all();
-        // $pasien = Pasien::all();
+         $pasien = Pasien::all();
         // $vaksinRegistrasis = VaksinRegistrasis::all();
        
         // return view('dashboard.kasir.setPembayaran', compact('vaksin','kasir','pasien','vaksinRegistrasis'));

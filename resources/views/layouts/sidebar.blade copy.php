@@ -1,4 +1,3 @@
-
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4" id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -29,15 +28,6 @@
         </a>
       </li>
     
-         <!-- Registrasi -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/vaksin_registrasis') }}">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="fas fa-syringe text-primary text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Registrasi & Proses</span>
-        </a>
-      </li>
 
 
       <!-- Registrasi -->
@@ -51,7 +41,15 @@
       </li>
 
        
-   
+      <!-- Registrasi -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/vaksin_registrasis') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="fas fa-syringe text-primary text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Vaksinasi</span>
+        </a>
+      </li>
 
          <!-- Registrasi -->
          <li class="nav-item">
@@ -71,7 +69,7 @@
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Transaksi</span>
+          <span class="nav-link-text ms-1">Vaksin</span>
         </a>
         <div class="collapse" id="masterDataMenuVaksin">
           <ul class="nav ms-4">
@@ -79,23 +77,31 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/vaksinpenjualan') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-money-coins  text-primary text-sm opacity-10"></i>
+                  <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Penjualan Vaksin</span>
               </a>
-            </li>   
+            </li> 
 
             <!-- Master Jenis Vaksinasi -->
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/vaksinpembelian') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-cart text-primary text-sm opacity-10"></i>
+                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Pembelian Vaksin</span>
               </a>
             </li>
 
-         
+            <!-- Master Vaksin Tambahan -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/vaksinpaket') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Stok & Harga Vaksin</span>
+              </a>
+            </li>
           </ul>
         </div>
       </li> 
@@ -113,30 +119,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/dokter') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
+                  <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Nakes</span>
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/vaksinmaster') }}">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Vaksin (Distributor)</span>
-              </a>
-            </li>
-
-            <!-- Master Vaksin Tambahan -->
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/vaksinpaket') }}">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Harga & Jasa Medis </span>
-              </a>
-            </li>
             <!-- Master Jenis Vaksinasi -->
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/vaksin') }}">
@@ -161,18 +149,27 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/travel') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
+                  <i class="ni ni-bus-front-12 text-primary text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Travel</span>
               </a>
             </li>
          
             <li class="nav-item">
+              <a class="nav-link" href="{{ url('/vaksinmaster') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-bus-front-12 text-primary text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Vaksin</span>
+              </a>
+            </li>
+         
+            <li class="nav-item">
               <a class="nav-link" href="{{ url('/#') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
+                  <i class="ni ni-bus-front-12 text-primary text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Setting</span>
+                <span class="nav-link-text ms-1">SETTING</span>
               </a>
             </li>
           

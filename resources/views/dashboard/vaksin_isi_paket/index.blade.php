@@ -7,10 +7,14 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Daftar Paket Vaksin</h6>
-                    <br>
-                    <a class="btn btn-primary btn-sm" href="{{ url('vaksin/create') }}">Tambah Paket Vaksin</a>
+                   
                 </div>
+
+                <div class="card-header pb-0 d-flex align-items-center justify-content-between">  
+                    <a class="btn btn-primary btn-lg" href="{{ url('vaksin/create') }}">Tambah Paket Vaksin</a>        
+                    <h3>D&nbsp;a&nbsp;f&nbsp;t&nbsp;a&nbsp;r&nbsp;&nbsp; P&nbsp;a&nbsp;k&nbsp;e&nbsp;t&nbsp;&nbsp; V&nbsp;a&nbsp;k&nbsp;s&nbsp;i&nbsp;n</h3>
+                </div>
+
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
@@ -59,7 +63,7 @@
                                             <td>{{ $item->jp_asisten }}</td>
                                             <td>{{ $item->status_vaksin }}</td>
                                             <td>
-                                                <a class="btn btn-primary" href="{{ route('vaksin.edit', $item->id) }}">Edit</a>
+                                                <a class="btn btn-warning btn-lg" href="{{ route('vaksin.edit', $item->id) }}">Edit</a>
                                                 <!-- <form action="{{ route('vaksin.destroy', $item->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')

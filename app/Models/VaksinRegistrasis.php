@@ -28,6 +28,5 @@ class VaksinRegistrasis extends Model
         {
                 return $this->belongsTo(Vaksin::class, 'jenis_vaksinasi'); // Adjust the foreign key if necessary
         }
-
         
 }
