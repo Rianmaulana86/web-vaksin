@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::post('/kasir/pembayaran/{id}', [KasirController::class, 'setPembayaran'])->name('kasir.pembayaran');
     
-    Route::post('/buku/cetak/{id}', [BukuicvController::class, 'bukuIcvCetak'])->name('buku.cetak');
+   
     Route::post('/buku/diterima/{id}', [BukuicvController::class, 'bukuIcvDiterima'])->name('buku.diterima');
     Route::get('/kasir/store', [KasirController::class, 'store'])->name('kasir.store');
     //api
@@ -69,9 +69,14 @@ Route::middleware(['auth'])->group(function () {
     
     //route direct
     Route::get('/vaksin_registrasis/index', [VaksinRegistrasisController::class, 'index'])->name('vaksin.registrasi.index');
-
+    Route::get('/vaksin_icv_cetak/index', [BukuicvController::class, 'index'])->name('vaksin.bukucetak.index');
+    
+  
     Route::post('/vaksin/suntik/{id}', [VaksinRegistrasisController::class, 'setTindakanSuntik']);
     Route::post('/vaksin/updatesuntik/{id}', [VaksinRegistrasisController::class, 'updatesuntik'])->name('vaksin.updatesuntik');
-    //Route::get('/kasir/store', [KasirController::class, 'store'])->name('kasir.store');
+
+    Route::post('/buku/cetak/{id}', [BukuicvController::class, 'bukuIcvCetak'])->name('buku.cetak');
+    
+    Route::post('/buku/inputcetak/{id}', [BukuicvController::class, 'inputCetakBuku'])->name('buku.inputCetakBuku');
 
    });

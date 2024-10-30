@@ -16,7 +16,7 @@ class VaksinRegistrasis extends Model
 
         public function pasien()
         {
-                return $this->belongsTo(Pasien::class, 'id_pasien');
+                return $this->belongsTo(Pasien::class, 'id_pasien','id_rm');
         }
 
         public function vaksinpaket()
@@ -28,5 +28,8 @@ class VaksinRegistrasis extends Model
         {
                 return $this->belongsTo(Vaksin::class, 'jenis_vaksinasi'); // Adjust the foreign key if necessary
         }
-        
+        // public function bukuCetak()
+        // {
+        //     return $this->hasMany(BukuCetak::class, 'no_reg'); // Adjust if necessary based on your table structure
+        // }
 }

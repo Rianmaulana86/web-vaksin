@@ -1,11 +1,7 @@
 
 @extends('layouts.master')
 
-
 @section('content')
-
-
-
 <div class="container-fluid py-4">
     <div class="row">
       <div class="col-12">
@@ -29,47 +25,49 @@
                   </tr>
                 </thead>
                 <tbody>
-                   @if (count($bukucetak) > 0)
+                 
 
                    @php
                        $no = 1;
                    @endphp
                     
-                    @foreach ($bukucetak as $d)
+                   @foreach ($bukuCetak as $d)
                         <tr>
                             <td class="text-center">{{ $no++ }}</td>
-                            <td>{{ $d->pasien->nama_pasien }}&nbsp;&nbsp;({{ $d->pasien->no_passport }})</td>
+                            @foreach($d->vaksinRegistrasis as $p)
+                            <td>{{ $p->pasien->nama_pasien ?? 'N/A' }}&nbsp;&nbsp;({{ $p->no_reg ?? 'N/A' }})</td>
+                            @endforeach
                             <td class="text-center">
                               <a class="btn {{ $d->print_cover === 'N' ? 'btn-danger' : 'btn-success' }}" 
-                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal1/' . $d->pasien->id_rm }}" 
+                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal1/' . $d->id_rm }}" 
                                 target="{{ $d->print_cover === 'Y' ? '_self' : '_blank' }}">
                                   <i class="fa fa-print"></i> {{ $d->print_cover === 'Y' ? 'sudah' : 'belum' }}
                               </a>
                           </td>
                           <td class="text-center">
                               <a class="btn {{ $d->print_cover === 'N' ? 'btn-danger' : 'btn-success' }}" 
-                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal6/' . $d->pasien->id_rm }}" 
+                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal6/' . $d->id_rm }}" 
                                 target="{{ $d->print_cover === 'Y' ? '_self' : '_blank' }}">
                                   <i class="fa fa-print"></i> {{ $d->print_cover === 'Y' ? 'sudah' : 'belum' }}
                               </a>
                           </td>
                           <td class="text-center">
                               <a class="btn {{ $d->print_cover === 'N' ? 'btn-danger' : 'btn-success' }}" 
-                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal6/' . $d->pasien->id_rm }}" 
+                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal6/' . $d->id_rm }}" 
                                 target="{{ $d->print_cover === 'Y' ? '_self' : '_blank' }}">
                                   <i class="fa fa-print"></i> {{ $d->print_cover === 'Y' ? 'sudah' : 'belum' }}
                               </a>
                           </td>
                           <td class="text-center">
                               <a class="btn {{ $d->print_cover === 'N' ? 'btn-danger' : 'btn-success' }}" 
-                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal6/' . $d->pasien->id_rm }}" 
+                                href="{{ $d->print_cover === 'Y' ? '#' : 'vaksin_icv_cetak/cetakhal6/' . $d->id_rm }}" 
                                 target="{{ $d->print_cover === 'Y' ? '_self' : '_blank' }}">
                                   <i class="fa fa-print"></i> {{ $d->print_cover === 'Y' ? 'sudah' : 'belum' }}
                               </a>
                           </td>
                         </tr>
                     @endforeach
-                   @endif
+            
                 </tbody>
               </table>
             </div>

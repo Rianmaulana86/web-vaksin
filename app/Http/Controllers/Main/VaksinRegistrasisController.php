@@ -115,8 +115,8 @@ class VaksinRegistrasisController extends Controller
         // Simpan data ke database
         VaksinRegistrasis::create($dataToStore);
 
-        //return redirect()->back()->with('success', 'Data dokter berhasil ditambahkan.');
-        return view('dashboard.vaksin_registrasis.index', compact('vaksin_registrasis', 'search'))->with('success', 'Registrasi vaksin Pasien berhasil!');
+        return redirect()->back()->with('success', 'Data dokter berhasil ditambahkan.');
+        //return view('dashboard.vaksin_registrasis.index', compact('vaksin_registrasis', 'search'))->with('success', 'Registrasi vaksin Pasien berhasil!');
     }
 
 
