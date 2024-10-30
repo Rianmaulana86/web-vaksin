@@ -61,3 +61,83 @@
 </body>
 
 </html>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.nav-link');
+    const masterDataMenu = document.querySelector('#masterDataMenuMasterData');
+    const nakesLink = document.querySelector('.nakes-link');
+    const transaksiMenu = document.querySelector('#masterDataMenuVaksin');
+
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove 'active' class and reset color from all links
+            links.forEach(l => {
+                l.classList.remove('active');
+                l.style.color = ''; // Reset color
+            });
+
+            // Add 'active' class to the clicked link
+            this.classList.add('active');
+            this.style.color = 'red'; // Change color to red for the active link
+
+            // Close all dropdowns
+            const collapses = document.querySelectorAll('.collapse');
+            collapses.forEach(collapse => {
+                collapse.classList.remove('show');
+            });
+
+            // Open the clicked link's dropdown if it has one
+            const collapseId = this.getAttribute('data-bs-target');
+            if (collapseId) {
+                const collapseElement = document.querySelector(collapseId);
+                if (collapseElement) {
+                    collapseElement.classList.toggle('show');
+                }
+            }
+
+            // Keep the Master Data menu open if "Nakes" is clicked
+            if (this === nakesLink) {
+                if (masterDataMenu) {
+                    masterDataMenu.classList.add('show'); // Keep the Master Data dropdown open
+                }
+            }
+
+            // Keep the Transaksi menu open if "Penjualan" or "Pembelian" is clicked
+            if (this.classList.contains('vaksin-link')) {
+                if (transaksiMenu) {
+                    transaksiMenu.classList.add('show'); // Keep the Transaksi dropdown open
+                }
+            }
+        });
+    });
+
+    // Check if the current page matches any menu link and activate it
+    const currentUrl = window.location.href;
+    links.forEach(link => {
+        if (link.href === currentUrl) {
+            link.classList.add('active');
+            link.style.color = 'red'; // Change color to red for the active link
+            const collapseId = link.getAttribute('data-bs-target');
+            if (collapseId) {
+                const collapseElement = document.querySelector(collapseId);
+                if (collapseElement) {
+                    collapseElement.classList.add('show');
+                }
+            }
+            // Keep the Master Data menu open if the active link is Nakes
+            if (link.classList.contains('nakes-link')) {
+                if (masterDataMenu) {
+                    masterDataMenu.classList.add('show'); // Keep the Master Data dropdown open
+                }
+            }
+            // Keep the Transaksi menu open if the active link is Penjualan or Pembelian
+            if (link.classList.contains('vaksin-link')) {
+                if (transaksiMenu) {
+                    transaksiMenu.classList.add('show'); // Keep the Transaksi dropdown open
+                }
+            }
+        }
+    });
+});
+</script>
